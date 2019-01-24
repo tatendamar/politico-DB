@@ -1,16 +1,27 @@
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+/* Root Font Size Calculation */
+/* Inital Font Size from root is 16px and my personal font size for my project is 10px  */
+
+html {
+  font-size: 62.5%;
 }
 
 body {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 20px;
+  padding: 2rem;
+
+  box-sizing: border-box;
 }
 
 .header {
@@ -28,7 +39,7 @@ body {
 
 /* heading Text */
 
-.header-box {
+.header__box {
   position: absolute;
   top: 60%;
   left: 50%;
@@ -36,19 +47,19 @@ body {
   text-align: center;
 }
 
-.heading-primary {
+.heading__primary {
   color: #fff;
   text-transform: uppercase;
 
   backface-visibility: hidden;
-  margin-bottom: 50px;
+  margin-bottom: 5rem;
 }
 
-.heading-primary-main {
+.heading__primary--main {
   display: block;
-  font-size: 56px;
+  font-size: 5.6rem;
   font-weight: 400;
-  letter-spacing: 7px;
+  letter-spacing: 0.7rem;
   color: #003e3e;
 
   animation-name: moveInLeft;
@@ -56,11 +67,11 @@ body {
   animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading__primary--sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 400;
-  letter-spacing: 13.5px;
+  letter-spacing: 1.35rem;
   color: #008b8a;
 
   animation-name: moveInRight;
@@ -71,11 +82,11 @@ body {
 @keyframes moveInLeft {
   0% {
     opacity: 0;
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
 
   80% {
-    transform: translateX(10px);
+    transform: translateX(1rem);
   }
 
   100% {
@@ -87,11 +98,11 @@ body {
 @keyframes moveInRight {
   0% {
     opacity: 0;
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
 
   80% {
-    transform: translateX(-10px);
+    transform: translateX(-1rem);
   }
 
   100% {
@@ -102,25 +113,26 @@ body {
 
 .btn:link,
 .btn:visited {
+  font-size: 1.6rem;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all 0.2s;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .btn:active {
   transform: translateY(-1px);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn-main {
+.btn--signin {
   background-color: #fff;
   color: #777;
 }

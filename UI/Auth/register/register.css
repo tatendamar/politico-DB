@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 20px;
+}
+
+.signup {
+  height: 95vh;
+  background-image: url(/UI/img/login.jpg);
+  background-size: cover;
+  background-position: bottom;
+  position: relative;
+}
+
+.signup__section {
+  background: rgba(44, 62, 80, 0.9);
+  padding: 40px;
+  width: 360px;
+  height: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signup__form {
+  width: 300px;
+  text-align: center;
+
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+}
+
+.signup__text {
+  color: #fff;
+}
+
+.signup__form--input {
+  width: 300px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #fff;
+  font-weight: 200;
+  padding: 10px 0;
+  transition: border 0.5s;
+  outline: none;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 30px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all 0.2s;
+  margin-bottom: 20px;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn--signup {
+  background-color: #fff;
+  color: #777;
+}
+
+.signup__info--text {
+  display: block;
+  margin-bottom: 50px;
+}
+
+.signup__info--text a {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #beeb9f;
+}
+
+.signup__info--text a:hover {
+  color: #ffe385;
+}
+
+.signup__info--link {
+  display: block;
+  color: #fff;
+}
+
+.signup__info--link a {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #beeb9f;
+}
+
+.signup__info--link a:hover {
+  color: #ffe385;
+}
+
+::placeholder {
+  color: aliceblue;
+  opacity: 0.8;
+}
