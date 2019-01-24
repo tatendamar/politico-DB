@@ -9,38 +9,43 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=lato:100,300,400,700,900"
     />
-    <link rel="stylesheet" href="account.css" />
+    <link rel="stylesheet" href="reset.css" />
 
     <title>User Account</title>
   </head>
   <body>
-    <form>
-      <h2 class="reset__form"></h2>
-      <input
-        class="reset__form--input"
-        type="password"
-        name="oldPassword"
-        placeholder="Old Password"
-      />
+    <div class="reset">
+      <div class="reset__section">
+        <form class="reset__form">
+          <h2 class="reset__text"></h2>
+          <input
+            class="reset__form--input"
+            type="password"
+            name="oldPassword"
+            placeholder="Old Password"
+          />
 
-      <input
-        class="reset__form--input"
-        type="password"
-        name="newPassword"
-        placeholder="New Password"
-      />
+          <input
+            class="reset__form--input"
+            type="password"
+            name="newPassword"
+            placeholder="New Password"
+          />
 
-      <input
-        class="reset__form--input"
-        type="password"
-        name="confirmpass"
-        placeholder="Confirm New Password"
-      />
+          <input
+            class="reset__form--input"
+            type="password"
+            name="confirmpass"
+            placeholder="Confirm New Password"
+          />
 
-      <a href="#" class="reset__btn btn btn--reset">Reset</a>
-    </form>
-    <div class="reset__message msg--hide">
-      Succesfully changed your password
+          <a href="#" class="reset__btn btn btn--reset">Reset</a>
+        </form>
+        <div class="reset__message msg--hide">
+          Succesfully changed your password
+        </div>
+      </div>
     </div>
+    <script src="reset.js"></script>
   </body>
 </html>

@@ -143,7 +143,7 @@ body {
   visibility: hidden;
 }
 
-.signup__message--show {
+.reset__message--show {
   visibility: visible;
   animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
   /* animation-name: fadeIn;
@@ -189,4 +189,9 @@ body {
 
 .signup__info--link a:hover {
   color: #ffe385;
+}
+
+::placeholder {
+  color: aliceblue;
+  opacity: 0.8;
 }
