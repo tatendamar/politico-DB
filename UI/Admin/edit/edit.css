@@ -1,0 +1,194 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* Root Font Size Calculation */
+/* Inital Font Size from root is 16px and my personal font size for my project is 10px  */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 2rem;
+
+  box-sizing: border-box;
+}
+
+.register {
+  height: 95vh;
+  padding: 5rem 4rem;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(190, 235, 159, 0.801),
+    rgba(121, 189, 159, 0.808)
+  );
+}
+
+.register__section {
+  background-image: url(/UI/img/register.jpg);
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+
+  height: 57rem;
+  position: relative;
+}
+
+.form__column {
+  padding: 4rem 6rem;
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.inner__row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.register__heading {
+  text-align: center;
+  font-size: 2rem;
+}
+.register__text {
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.form__group:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.form__input {
+  font-size: 1.5rem;
+  font-family: inherit;
+  color: rgb(0, 0, 0);
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(203, 238, 236, 0.5);
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 100%;
+  display: block;
+}
+
+.form__input:focus:invalid {
+  border-bottom: 3px solid #ffa500;
+}
+
+.form__input:focus {
+  outline: none;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #79bd8f;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(14, 15, 15);
+  opacity: 0.8;
+}
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
+/* 
+.btn,
+.btn:link,
+.btn:visited {
+  font-size: 1.6rem;
+  background-color: rgba(0, 240, 60, 0.883);
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 4rem;
+  display: inline-block;
+  border-radius: 1rem;
+  transition: all 0.2s;
+
+  border: none;
+  cursor: pointer;
+}
+
+.btn,
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn,
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+} */
+
+.btn__group .btn,
+.btn,
+.btn:link,
+.btn:visited {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 1rem;
+  color: white; /* White text */
+  padding: 1rem 4rem; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+  border: none;
+
+  transition: all 0.2s;
+  margin-top: -1.5rem;
+}
+
+.btn,
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn,
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn--create {
+  background-color: #4caf50;
+  /* margin-top: -9rem; */
+}
+
+.btn--edit {
+  background-color: #d3d61b;
+  margin-left: 10px;
+}
+
+.btn--delete {
+  background-color: #ee701c;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .form__column {
+    width: 100%;
+  }
+}
