@@ -182,6 +182,11 @@ body {
   margin-left: 10px;
 }
 
+.btn--edit a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .btn--delete {
   background-color: #ee701c;
   margin-left: 10px;
