@@ -1,4 +1,4 @@
-var acc = document.getElementsByClassName('acc__accordian');
+var acc = document.getElementsByClassName('acc__accordion');
 
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener('click', function() {

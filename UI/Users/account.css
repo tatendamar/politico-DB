@@ -24,7 +24,7 @@ body {
   box-sizing: border-box;
 }
 
-.register {
+.account {
   height: 95vh;
   padding: 5rem 4rem;
   background-image: linear-gradient(
@@ -34,7 +34,7 @@ body {
   );
 }
 
-.register__section {
+.account__section {
   background-image: url(/UI/img/register.jpg);
   background-size: cover;
   background-position: bottom;
@@ -58,16 +58,16 @@ body {
   clear: both;
 }
 
-.register__heading {
+.account__heading {
   text-align: center;
   font-size: 2rem;
 }
-.register__text {
+.account__text {
   padding-bottom: 0.5rem;
   font-size: 1.5rem;
 }
 
-.acc__accordian {
+.acc__accordion {
   background-color: #8fb7a5;
   color: #fff;
   cursor: pointer;
@@ -95,11 +95,11 @@ body {
 }
 
 .active,
-.acc__accordian:hover {
+.acc__accordion:hover {
   background-color: #527e6a;
 }
 
-.acc__accordian:after {
+.acc__accordion:after {
   content: '\02795';
   font-size: 15px;
   float: right;
@@ -156,34 +156,6 @@ body {
   visibility: hidden;
   transform: translateY(-4rem);
 }
-/* 
-.btn,
-.btn:link,
-.btn:visited {
-  font-size: 1.6rem;
-  background-color: rgba(0, 240, 60, 0.883);
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1rem 4rem;
-  display: inline-block;
-  border-radius: 1rem;
-  transition: all 0.2s;
-
-  border: none;
-  cursor: pointer;
-}
-
-.btn,
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-
-.btn,
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-} */
 
 .btn__group .btn,
 .btn,
@@ -193,10 +165,10 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 1rem;
-  color: white; /* White text */
-  padding: 1rem 4rem; /* Some padding */
-  cursor: pointer; /* Pointer/hand icon */
-  float: left; /* Float the buttons side by side */
+  color: white;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  float: left;
   border: none;
 
   transition: all 0.2s;
@@ -223,7 +195,6 @@ body {
 
 .btn--edit {
   background-color: #d3d61b;
-  content: 'U+02713';
   margin-top: 230px;
   margin-left: 10px;
   outline: none;

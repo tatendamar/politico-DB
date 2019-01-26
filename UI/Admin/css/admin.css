@@ -113,34 +113,6 @@ body {
   visibility: hidden;
   transform: translateY(-4rem);
 }
-/* 
-.btn,
-.btn:link,
-.btn:visited {
-  font-size: 1.6rem;
-  background-color: rgba(0, 240, 60, 0.883);
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1rem 4rem;
-  display: inline-block;
-  border-radius: 1rem;
-  transition: all 0.2s;
-
-  border: none;
-  cursor: pointer;
-}
-
-.btn,
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-
-.btn,
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-} */
 
 .btn__group .btn,
 .btn:link,

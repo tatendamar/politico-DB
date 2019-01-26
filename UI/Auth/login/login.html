@@ -13,37 +13,51 @@
     <link rel="stylesheet" href="login.css" />
   </head>
   <body>
-    <div class="login">
-      <div class="login__section">
-        <form action="" class="login__form">
-          <h2 class="login__text">Log In</h2>
-          <input
-            class="login__form--input"
-            type="text"
-            name="username"
-            placeholder="Username"
-          />
-          <input
-            class="login__form--input"
-            type="password"
-            name="password"
-            placeholder="Password"
-          />
+    <div class="row">
+      <div class="login">
+        <div class="login__section">
+          <form action="" class="login__form">
+            <div class="form__column">
+                <h2 class="login__text">Log In</h2>
 
-          <a href="/UI/Users/account.html" class="login__btn btn btn--login"
-            >LogIn
-          </a>
-          <div class="login__info">
-            <span class="login__info--text">
-              <a href="../reset/reset.html">Reset Password</a> <br />
-            </span>
-            <span class="login__info--link">
-              Dont have an account?
-              <a href="../register/register.html">&nbsp;Sign Up</a>
-            </span>
-          </div>
-        </form>
+                <div class="form__group">
+                    <input type='text' class='login__form--input' 
+                    name="username"
+                    placeholder='Username'
+                    id='name' required / >
+                    <label for="name" class="form__label"> Party Name</label>
+                  </div>
+
+                  <div class="form__group form__group--last">
+                      <input type='password' class='login__form--input' 
+                      name="password"
+                      placeholder='Password'
+                      id='password' required / >
+                      <label for="password" class="form__label">Password</label>
+                    </div>
+
+
+                    <div class="btn__group">
+                      <button id="sub" class="btn btn--login" disabled>
+                          <a href="/UI/Users/account.html">
+                            LogIn
+                        </a>
+                      </button>
+                    </div>
+          </form>
+            <div class="login__info">
+              <span class="login__info--text">
+                <a href="../reset/reset.html">Reset Password</a> <br />
+              </span>
+              <span class="login__info--link">
+                Dont have an account?
+                <a href="../register/register.html">&nbsp;Sign Up</a>
+              </span>
+            </div>
+        </div>
       </div>
     </div>
+
+    <script src="login.js"></script>
   </body>
 </html>
