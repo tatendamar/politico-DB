@@ -14,38 +14,51 @@
     <title>User Account</title>
   </head>
   <body>
-    <div class="reset">
-      <div class="reset__section">
-        <form class="reset__form">
-          <h2 class="reset__text"></h2>
-          <input
-            class="reset__form--input"
-            type="password"
-            name="oldPassword"
-            placeholder="Old Password"
-          />
+    <div class="row">
+      <div class="reset">
+        <div class="reset__section">
+          <form class="reset__form">
+            <div class="form__column">
+              <h2 class="reset__text">Reset Password</h2>
 
-          <input
-            class="reset__form--input"
-            type="password"
-            name="newPassword"
-            placeholder="New Password"
-          />
+              <div class="form__group">
+                <input type='password' class='reset__form--input'
+                name="oldPassword" placeholder='Old Password' id='oldPassword'
+                required / >
+                <label for="OldPassword" class="form__label"
+                  >Old Password</label
+                >
+              </div>
 
-          <input
-            class="reset__form--input"
-            type="password"
-            name="confirmpass"
-            placeholder="Confirm New Password"
-          />
+              <div class="form__group">
+                <input type='password' class='reset__form--input' name="new
+                Password" placeholder='New Password' id='newPassword' required /
+                >
+                <label for="newPassword" class="form__label"
+                  >New Password</label
+                >
+              </div>
 
-          <a href="#" class="reset__btn btn btn--reset">Reset</a>
-        </form>
-        <div class="reset__message msg--hide">
-          Succesfully changed your password
+              <div class="form__group form__group--last">
+                <input type='password' class='reset__form--input'
+                name="cPassword" placeholder='Confirm Password' id='cPassword'
+                required / >
+                <label for="cPassword" class="form__label"
+                  >Confirm Password</label
+                >
+              </div>
+
+              <div class="btn__group">
+                <button id="sub" class="btn btn--reset" disabled>
+                  <a href="#">Reset </a>
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
+
     <script src="reset.js"></script>
   </body>
 </html>

@@ -24,31 +24,26 @@ body {
   box-sizing: border-box;
 }
 
-.reset {
+.login {
   height: 95vh;
-  padding: 5rem 4rem;
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(190, 235, 159, 0.801),
-    rgba(121, 189, 159, 0.808)
-  );
+  background-image: url(/UI/img/login.jpg);
+  background-size: cover;
+  background-position: bottom;
   position: relative;
 }
 
-.reset__section {
+.login__section {
   background: rgba(44, 62, 80, 0.9);
   padding: 4rem;
-  width: 36rem;
-  height: 45rem;
+  width: 35rem;
+  height: 40rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-
-
-.reset__form {
+.login__form {
   width: 30rem;
   text-align: center;
 
@@ -57,7 +52,7 @@ body {
   backface-visibility: hidden;
 }
 
-.reset__text {
+.login__text {
   color: #fff;
   margin-bottom: 3rem;
 }
@@ -66,7 +61,7 @@ body {
   margin-bottom: 3rem;
 }
 
-.reset__form--input {
+.login__form--input {
   width: 30rem;
   font-size: 1.5rem;
   font-family: inherit;
@@ -85,11 +80,11 @@ body {
   display: block;
 }
 
-.reset__form--input:focus:invalid {
+.login__form--input:focus:invalid {
   border-bottom: 3px solid #ffa500;
 }
 
-.reset__form--input:focus {
+.login__form--input:focus {
   outline: none;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
   border-bottom: 3px solid #79bd8f;
@@ -109,7 +104,7 @@ body {
   transition: all 0.3s;
 }
 
-.reset__form--input:placeholder-shown + .form__label {
+.login__form--input:placeholder-shown + .form__label {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem);
@@ -146,144 +141,49 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
-.btn--reset {
+.btn--login {
   background-color: #d3d61b;
   margin-left: 10px;
 }
 
-.btn--reset a {
+.btn--login a {
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
 
-
-
-
-/* .reset__form {
-  width: 30rem;
-  text-align: center;
-
-  text-transform: uppercase;
-
-  backface-visibility: hidden;
-  position: relative;
-}
-
-.reset__text {
-  color: #fff;
-}
-
-.reset__form--input {
-  width: 30rem;
-  text-align: center;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #fff;
-  font-weight: 200;
-  padding: 1rem 0;
-  transition: border 0.5s;
-  outline: none;
-  color: #fff;
-  margin-bottom: 2rem;
-}
-
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1rem 3rem;
-  display: inline-block;
-  border-radius: 10rem;
-  transition: all 0.2s;
-  margin-bottom: 2rem;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-
-.btn:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-
-.btn--reset {
+/* .btn--login {
   background-color: #fff;
   color: #777;
-}
+} */
 
-.reset__info--text {
+.login__info--text {
+  font-size: 1.6rem;
   display: block;
   margin-bottom: 5rem;
 }
 
-.reset__info--text a {
+.login__info--text a {
   text-transform: capitalize;
   text-decoration: none;
   color: #beeb9f;
 }
 
-.reset__info--text a:hover {
+.login__info--text a:hover {
   color: #ffe385;
 }
 
-.reset__message {
-  min-width: 35rem;
-  background-color: rgba(255, 255, 0, 0.6);
-  color: #000;
-  text-align: center;
-  border-radius: 2px;
-  padding: 1.6rem;
-  z-index: 1;
-  right: 20%;
-  /* top: 30px; */
-  font-size: 1.7rem;
-
-  position: absolute;
-  top: -10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.login__info--link {
+  font-size: 1.6rem;
+  display: block;
+  color: #fff;
 }
 
-.msg--hide {
-  visibility: hidden;
+.login__info--link a {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #beeb9f;
 }
 
-.reset__message--show {
-  visibility: visible;
-  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
-  /* animation-name: fadeIn;
-  animation-delay: 0.5s;
-
-  animation-name: fadeOut;
-  animation-duration: 0.5s;
-  animation-delay: 2.5s; */
+.login__info--link a:hover {
+  color: #ffe385;
 }
-
-@keyframes fadeIn {
-  from {
-    top: 0;
-    opacity: 0;
-  }
-  to {
-    top: 3rem;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    top: 3rem;
-    opacity: 1;
-  }
-  to {
-    top: 0;
-    opacity: 0;
-  }
-}
-
-::placeholder {
-  color: aliceblue;
-  opacity: 0.8;
-} */

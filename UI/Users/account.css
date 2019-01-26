@@ -71,26 +71,26 @@ body {
   background-color: #8fb7a5;
   color: #fff;
   cursor: pointer;
-  padding: 18px;
+  padding: 6px;
   width: 100%;
   text-align: left;
   border: 1px solid white;
   transition: 0.4s;
-  font-size: 20px;
+  font-size: 2rem;
   font-family: inherit;
   outline: none;
 }
 
 .acc__panel {
-  padding: 0 18px;
+  padding: 0 1.8rem;
   background-color: white;
   display: none;
   overflow: hidden;
 }
 
 .acc__text {
-  margin-top: 20px;
-  font-size: 16px;
+  margin-top: 2rem;
+  font-size: 1.6rem;
   font-family: inherit;
 }
 
@@ -101,7 +101,7 @@ body {
 
 .acc__accordion:after {
   content: '\02795';
-  font-size: 15px;
+  font-size: 1.5rem;
   float: right;
   margin-left: 5px;
 }
@@ -193,14 +193,15 @@ body {
   /* margin-top: -9rem; */
 }
 
-.btn--edit {
+.btn--view {
   background-color: #d3d61b;
-  margin-top: 230px;
-  margin-left: 10px;
+  margin-top: 7rem;
+  margin-left: 6rem;
+
   outline: none;
 }
 
-.btn--edit a {
+.btn--view a {
   text-decoration: none;
   color: #fff;
 }

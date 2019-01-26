@@ -148,9 +148,15 @@ body {
   /* margin-top: -9rem; */
 }
 
+.btn--createOffice {
+  background-color: #3852e4;
+
+  /* margin-top: -9rem; */
+}
+
 .btn--edit {
   background-color: #d3d61b;
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 
 .btn--edit a {
@@ -158,9 +164,14 @@ body {
   color: #fff;
 }
 
+.btn--create a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .btn--delete {
   background-color: #ee701c;
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 
 @media screen and (max-width: 600px) {
