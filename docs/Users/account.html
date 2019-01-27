@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=lato:100,300,400,700,900"
+    />
+    <link rel="stylesheet" href="account.css" />
+
+    <title>User Account</title>
+  </head>
+  <body>
+    <div class="row">
+      <div class="account">
+        <div class="account__section">
+          <h2 class="account__heading">Vote For Your Candidate From List</h2>
+
+          <div class="form__column">
+            <h2 class="account__text">List of all Candidates</h2>
+            <button class="acc__accordion">%Name%</button>
+            <div class="acc__panel">
+              <p class="acc__text">
+                %A little description and office the candidate is running for%
+              </p>
+            </div>
+
+            <button class="acc__accordion">%Name%</button>
+            <div class="acc__panel">
+              <p class="acc__text">
+                %A little description and office the candidate is running for%
+              </p>
+            </div>
+
+            <button class="acc__accordion">%Name%</button>
+            <div class="acc__panel">
+              <p class="acc__text">
+                %A little description and office the candidate is running for%
+              </p>
+            </div>
+          </div>
+          <div class="form__group">
+            <button class="btn btn--view">
+              <a href="./edit/edit.html">View Your Profile</a>
+            </button>
+          </div>
+
+          <!-- Right column -->
+          <form action="" class="form">
+            <div class="form__column">
+              <h2 class="register__text">Enter Name of Candidate and Office</h2>
+              <div class="form__group">
+                <input
+                  type="text"
+                  name="candidate"
+                  class="form__input"
+                  placeholder="Candidate Name"
+                  id="name"
+                  required
+                />
+                <label for="name" class="form__label"> Name</label>
+              </div>
+
+              <div class="form__group">
+                <input
+                  type="text"
+                  name="office"
+                  class="form__input"
+                  placeholder="Office"
+                  id="office"
+                  required
+                />
+                <label for="office" class="form__label"> Office</label>
+              </div>
+
+              <div class="form__group">
+                <button class="btn btn--create">Vote &#10003;</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="user.js"></script>
+  </body>
+</html>

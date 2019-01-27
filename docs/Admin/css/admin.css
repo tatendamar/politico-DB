@@ -1,0 +1,343 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* Root Font Size Calculation */
+/* Inital Font Size from root is 16px and my personal font size for my project is 10px  */
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 2rem;
+
+  box-sizing: border-box;
+}
+
+.register {
+  height: 95vh;
+  padding: 5rem 4rem;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(190, 235, 159, 0.801),
+    rgba(121, 189, 159, 0.808)
+  );
+}
+
+.register__section {
+  background-image: url(/UI/img/register.jpg);
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+
+  height: 57rem;
+  position: relative;
+}
+
+.form__column {
+  padding: 4rem 6rem;
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.inner__row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.register__heading {
+  text-align: center;
+  font-size: 2rem;
+}
+.register__text {
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.form__group:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.form__input {
+  font-size: 1.5rem;
+  font-family: inherit;
+  color: rgb(0, 0, 0);
+  padding: 1.5rem 2rem;
+  border-radius: 2px;
+  background-color: rgba(203, 238, 236, 0.5);
+  border: none;
+  border-bottom: 3px solid transparent;
+  width: 100%;
+  display: block;
+}
+
+.form__input:focus:invalid {
+  border-bottom: 3px solid #ffa500;
+}
+
+.form__input:focus {
+  outline: none;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #79bd8f;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(14, 15, 15);
+  opacity: 0.8;
+}
+
+.form__label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
+
+.btn__group .btn,
+.btn:link,
+.btn:visited {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 1rem;
+  color: #fff;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  float: left;
+  border: none;
+
+  transition: all 0.2s;
+  margin-top: -1.5rem;
+}
+
+.btn,
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn,
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+}
+
+.btn--create {
+  background-color: #4caf50;
+  /* margin-top: -9rem; */
+}
+
+.btn--createOffice {
+  background-color: #3852e4;
+
+  /* margin-top: -9rem; */
+}
+
+.btn--edit {
+  background-color: #d3d61b;
+  margin-left: 1rem;
+}
+
+.btn--edit a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn--create a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn--createG a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.btn--createG {
+  background-color: #4caf50;
+}
+
+.btn--delete {
+  background-color: #ee701c;
+  margin-left: 1rem;
+}
+
+@media screen and (min-width: 375px) {
+  .register {
+    width: 100%;
+    height: 165rem;
+  }
+
+  .form__column {
+    width: 100%;
+  }
+
+  .register__section {
+    width: 100%;
+    height: 100%;
+  }
+
+  .register__heading {
+    font-size: 3rem;
+  }
+
+  .register__text {
+    margin-left: -31px;
+    font-size: 2rem;
+  }
+
+  .form__group {
+    margin-left: -3rem;
+    width: 150%;
+  }
+
+  .form__input {
+    font-size: 2.5rem;
+  }
+
+  ::-webkit-input-placeholder {
+    opacity: 0.8;
+    font-size: 2rem;
+  }
+
+  .form__label {
+    font-size: 2rem;
+  }
+
+  .acc__accordion {
+    width: 121%;
+  }
+
+  .acc__panel {
+    width: 100%;
+    padding-top: 2px;
+  }
+
+  .btn--create {
+    margin-bottom: 4rem;
+    padding: 2rem 2rem;
+    margin-left: 1px;
+  }
+
+  .btn--createG {
+    margin-bottom: 4rem;
+    padding: 2rem 2rem;
+    margin-left: -30px;
+  }
+
+  .btn--edit {
+    padding: 2rem 2rem;
+    margin-left: 1px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .register {
+    width: 100%;
+    height: 197rem;
+  }
+
+  .form__column {
+    width: 100%;
+  }
+
+  .register__section {
+    width: 100%;
+    height: 100%;
+  }
+
+  .register__heading {
+    font-size: 5rem;
+  }
+
+  .register__text {
+    margin-left: -31px;
+    font-size: 4rem;
+  }
+
+  .form__group {
+    margin-left: -3rem;
+    width: 100%;
+  }
+
+  .form__input {
+    font-size: 4rem;
+    height: 7rem;
+  }
+
+  .form__label {
+    font-size: 3rem;
+  }
+  ::-webkit-input-placeholder {
+    opacity: 0.8;
+    font-size: 4rem;
+  }
+
+  .acc__accordion {
+    width: 121%;
+  }
+
+  .acc__panel {
+    width: 100%;
+    padding-top: 2px;
+  }
+
+  .btn {
+    width: 30%;
+  }
+
+  .btn a {
+    font-size: 3rem;
+  }
+
+  .btn--create {
+    font-size: 3rem;
+    width: 30%;
+    height: 5.5rem;
+    font-weight: 500;
+    margin-left: 1px;
+    margin-right: 2rem;
+  }
+
+  .btn--createG {
+    width: 103%;
+    margin-bottom: 4rem;
+    padding: 2rem 2rem;
+    margin-left: -30px;
+  }
+
+  .btn--edit {
+    padding: 2rem 2rem;
+    margin-left: 1px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .btn--createG {
+    width: 55%;
+    margin-bottom: 4rem;
+    padding: 2rem 2rem;
+    margin-left: -30px;
+  }
+}
