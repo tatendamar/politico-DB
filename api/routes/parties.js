@@ -26,8 +26,13 @@ router.get('/parties/:partyId', (req, res, next) => {
 
 //post parties
 router.post('/parties', (req, res, next) => {
-  res.status(200).json({
-    message: 'Handling POST req to parties'
+  const party = {
+    name: req.body.name,
+    email: req.body.email
+  };
+  res.status(201).json({
+    message: 'Handling POST req to parties',
+    createdParty: party
   });
 });
 

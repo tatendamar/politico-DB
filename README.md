@@ -2,9 +2,11 @@
 
 [![Build Status](https://travis-ci.com/tatendamar/politico.svg?branch=develop)](https://travis-ci.com/tatendamar/politico)
 
-![](https://img.shields.io/david/dev/expressjs/politico.svg?style=flat)
+![](https://img.shields.io/david/dev/expressjs/politico.svg?branche=develop)
 
-https://img.shields.io/npm/l/express.svg?style=flat
+![](https://img.shields.io/github/license/tatendmar/politico.svg?style=flat)
+
+![](https://img.shields.io/codeclimate/coverage/politico.svg?style=flat)
 
 a political site
 This project will address transparency issues during election periods,
