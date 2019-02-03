@@ -1,18 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const mongoose = require('mongoose');
 
 const partyRoutes = require('./api/routes/parties');
 const officeRoutes = require('./api/routes/office');
 
 const exampleRoutes = require('./routes/api');
-
-// mongoose.connect(
-//   `mongodb://tatenda:${
-//     process.env.MONGO_ATLAS_PW
-//   }api-test-shard-00-00-b1x3k.mongodb.net:27017,api-test-shard-00-01-b1x3k.mongodb.net:27017,api-test-shard-00-02-b1x3k.mongodb.net:27017/test?ssl=true&replicaSet=api-test-shard-0&authSource=admin&retryWrites=true`
-// );
 
 const app = express();
 
