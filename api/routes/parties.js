@@ -1,7 +1,7 @@
 //
 const express = require('express');
 const router = express.Router();
-const random = require('./utils/random');
+const day = require('./utils/date');
 
 let party = {
   status: 200,
@@ -14,7 +14,7 @@ let party = {
       city: 'Cape Town',
       logo:
         'https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png',
-      dateCreated: random
+      dateCreated: day
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ let party = {
       address: 'no 89 cross road',
       city: 'Cape Town',
       logo: 'https://farm7.staticflickr.com/6057/6262125702_a086dd49f1.jpg',
-      dateCreated: random
+      dateCreated: day
     }
   ]
 };
@@ -103,7 +103,7 @@ router.post('/parties', (req, res, next) => {
         address: newPart.address,
         city: newPart.city,
         logo: newPart.logo,
-        dateCreated: random
+        dateCreated: day
       }
     ]
   });

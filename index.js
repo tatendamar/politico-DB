@@ -5,8 +5,6 @@ const morgan = require('morgan');
 const partyRoutes = require('./api/routes/parties');
 const officeRoutes = require('./api/routes/office');
 
-const exampleRoutes = require('./routes/api');
-
 const app = express();
 
 app.use(morgan('dev'));
@@ -31,9 +29,6 @@ app.use((req, res, next) => {
 //init routes using the standard specified
 app.use('/api/v1', partyRoutes);
 app.use('/api/v1', officeRoutes);
-
-//FIXME: DELETE THIS PATH
-app.use('/api/v1', exampleRoutes);
 
 app.use((req, res, next) => {
   const error = new Error('Not found');
