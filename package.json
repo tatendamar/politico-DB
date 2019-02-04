@@ -6,7 +6,7 @@
   "scripts": {
     "test": "nyc mocha --timeout=3000 test/*",
     "start": "nodemon index",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc --reporter=text npm test"
   },
   "repository": {
     "type": "git",
