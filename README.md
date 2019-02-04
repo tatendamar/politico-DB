@@ -10,7 +10,7 @@
 
 ![](https://img.shields.io/david/dev/tatendamar/politico.svg?style=flat)
 
-![](https://img.shields.io/github/license/tatendmar/politico.svg?style=flat)
+![](https://img.shields.io/github/license/tatendamar/politico.svg?style=flat)
 
 a political site
 This project will address transparency issues during election periods,
