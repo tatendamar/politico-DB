@@ -4,11 +4,9 @@
   "description": "a political site\r This project will address transparency issues during election periods,\r It will allow users to vote for their candidates and allow the electoral body can register/create political parties and allow users to vote for their political candidate who belongs to a political office",
   "main": "index.js",
   "scripts": {
-    "test": "nyc mocha test/**/*.js",
+    "test": "nyc mocha",
     "start": "nodemon index",
-    "cover": "istanbul cover _mocha",
-    "coverage": "nyc --reporter-lcov --reporter-text-lcov npm test",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
+    "coverage": "nyc reporter --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
