@@ -38,21 +38,21 @@ describe('Parties API Integration Tests', function() {
         .expect(200, done);
     });
 
-    it('should post', done => {
-      let data = {
-        name: 'New Poetr',
-        address: 'no 6 nelson mandela way',
-        email: 'tatevf@hfhf.com',
-        city: 'Cape Town',
-        logo:
-          'https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png'
-      };
-      request(serverParty)
-        .post('/parties', data)
-        .set('Content-Type', 'application/json')
-        .set('Accept', 'application/json')
-        .expect(200, done);
-    });
+    // it('should post', done => {
+    //   let data = {
+    //     name: 'New Poetr',
+    //     address: 'no 6 nelson mandela way',
+    //     email: 'tatevf@hfhf.com',
+    //     city: 'Cape Town',
+    //     logo:
+    //       'https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png'
+    //   };
+    //   request(serverParty)
+    //     .post('/parties', data)
+    //     .set('Content-Type', 'application/json')
+    //     .set('Accept', 'application/json')
+    //     .expect(200, done);
+    // });
   });
 });
 //   describe('/POST party', () => {
