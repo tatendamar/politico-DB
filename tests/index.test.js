@@ -30,13 +30,6 @@ describe('Parties API Integration Tests', function() {
       //       done();
       //     });
     });
-    it('should get the office', done => {
-      request(serverOffice)
-        .get('/offices')
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(200, done);
-    });
 
     // it('should post', done => {
     //   let data = {
@@ -54,7 +47,17 @@ describe('Parties API Integration Tests', function() {
     //     .expect(200, done);
     // });
   });
+  describe('get offices', () => {
+    it('should get the office', done => {
+      request(serverOffice)
+        .get('/offices')
+        .set('Accept', 'application/json')
+        .expect('Content-Type', /json/)
+        .expect(200, done);
+    });
+  });
 });
+
 //   describe('/POST party', () => {
 //     it('it should not POST a book without pages field', done => {
 //       let party = {
