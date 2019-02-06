@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 
 const partyRoutes = require('./api/routes/parties');
-const officeRoutes = require('./api/routes/office');
+const officeRoutes = require('./api/routes/offices');
 
 const app = express();
 

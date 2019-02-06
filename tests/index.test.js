@@ -1,5 +1,5 @@
-var request = require('supertest');
-//let chaiHttp = require('chai-http');
+//var request = require('supertest');
+let chaiHttp = require('chai-http');
 var chai = require('chai');
 // var expect = require('chai').expect;
 let should = chai.should();
@@ -7,56 +7,76 @@ let should = chai.should();
 // This agent refers to PORT where program is runninng.
 
 var serverParty = require('../api/routes/parties');
-var serverOffice = require('../api/routes/office');
 
-// chai.use(chaiHttp);
+chai.use(chaiHttp);
 // UNIT test begin
 
 describe('Parties API Integration Tests', function() {
   describe('#GET /parties', function() {
     it('should get all parties', function(done) {
-      request(serverParty)
+      chai
+        .request(serverParty)
         .get('/parties')
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(200, done);
-      // .end(function(err, res) {
-      //   res.should.have.status(200);
-      //   res.body.should.be.a('object');
-
-      // expect(res.status).to.equal(200);
-      // expect(res.body).to.be.a('object');
-      // expect(res.body).not.to.be.empty;
-      //       done();
-      //     });
-    });
-
-    // it('should post', done => {
-    //   let data = {
-    //     name: 'New Poetr',
-    //     address: 'no 6 nelson mandela way',
-    //     email: 'tatevf@hfhf.com',
-    //     city: 'Cape Town',
-    //     logo:
-    //       'https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png'
-    //   };
-    //   request(serverParty)
-    //     .post('/parties', data)
-    //     .set('Content-Type', 'application/json')
-    //     .set('Accept', 'application/json')
-    //     .expect(200, done);
-    // });
-  });
-  describe('get offices', () => {
-    it('should get the office', done => {
-      request(serverOffice)
-        .get('/offices')
-        .set('Accept', 'application/json')
-        .expect('Content-Type', /json/)
-        .expect(200, done);
+        .end(function(err, res) {
+          res.should.have.status(200);
+          res.should.be.a('object');
+          done();
+        });
     });
   });
+
+  // describe('/POST book', () => {
+  //   it('it should not POST a book without pages field', done => {
+  //     let party = {
+  //       name: 'New Poetr',
+  //       address: 'no 6 nelson mandela way',
+  //       email: 'tatevf@hfhf.com',
+  //       city: 'Cape Town',
+  //       logo:
+  //         'https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png'
+  //     };
+  //     chai
+  //       .request('http://localhost:4000')
+  //       .post('/parties')
+  //       .send(party)
+  //       .set('Content-Type', 'application/json')
+  //       // .set('Accept', 'application/json')
+  //       .end((err, res) => {
+  //         res.should.have.status(200);
+  //         // res.body.should.be.a('object');
+  //         chai.expect(JSON.parse(res.body));
+  //         done();
+  //       });
+  //   });
+  // });
 });
+//   describe('get offices', () => {
+//     it('should get the office', done => {
+//       request(serverOffice)
+//         .get('/offices')
+//         .set('Accept', 'application/json')
+//         .expect('Content-Type', /json/)
+//         .expect(200, done);
+//     });
+//   });
+//   describe('post', () => {
+//     it('should post', done => {
+//       let data = {
+//         name: 'New Poetr',
+//         address: 'no 6 nelson mandela way',
+//         email: 'tatevf@hfhf.com',
+//         city: 'Cape Town',
+//         logo:
+//           'https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png'
+//       };
+//       request(serverParty)
+//         .post('/parties', data)
+//         .set('Content-Type', 'application/json')
+//         .set('Accept', 'application/json')
+//         .expect(200, done);
+//     });
+//   });
+// });
 
 //   describe('/POST party', () => {
 //     it('it should not POST a book without pages field', done => {
