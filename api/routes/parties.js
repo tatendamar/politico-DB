@@ -1,6 +1,6 @@
 //
-const express = require('express');
-const router = express.Router();
+const app = require('express')();
+// const router = express.Router();
 const day = require('./utils/date');
 
 let party = {
@@ -31,18 +31,12 @@ let party = {
 let currentId = 2;
 
 //get parties
-router.get('/parties', (req, res, next) => {
-  if (res.status(200)) {
-    res.send({ party: party });
-  }
-
-  res.status(200).json({
-    message: 'Handling GET req to parties'
-  });
+app.get('/parties', (req, res, next) => {
+  res.send({ party });
 });
 
 //get a party by id
-router.get('/parties/:partyId', (req, res, next) => {
+app.get('/parties/:partyId', (req, res, next) => {
   const id = req.params.partyId;
 
   let found = false;
@@ -72,7 +66,7 @@ router.get('/parties/:partyId', (req, res, next) => {
 });
 
 //post parties
-router.post('/parties', (req, res, next) => {
+app.post('/parties', (req, res, next) => {
   // let id = req.body.id;
   let name = req.body.name;
   let email = req.body.email;
@@ -110,7 +104,7 @@ router.post('/parties', (req, res, next) => {
 });
 
 //edit parties
-router.put('/parties/:partyId', (req, res, next) => {
+app.put('/parties/:partyId', (req, res, next) => {
   const id = req.params.partyId;
   let newName = req.body.name;
 
@@ -131,7 +125,7 @@ router.put('/parties/:partyId', (req, res, next) => {
 });
 
 //delete parties
-router.delete('/parties/:partyId', (req, res, next) => {
+app.delete('/parties/:partyId', (req, res, next) => {
   const id = req.params.partyId;
 
   let found = false;
@@ -148,4 +142,4 @@ router.delete('/parties/:partyId', (req, res, next) => {
   });
 });
 
-module.exports = router;
+module.exports = app;

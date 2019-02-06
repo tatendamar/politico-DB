@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>26/26</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>8/8</span>
+        <span class='fraction'>9/9</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>16/16</span>
+        <span class='fraction'>26/26</span>
       </div>
     </div>
   </div>
@@ -76,14 +76,77 @@
 31
 32
 33
-34</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -91,55 +154,88 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const chai = require('chai');
-const expect = chai.expect;
+let expect = chai.expect;
 &nbsp;
-chai.should();
+const capitalize = require('./example');
 &nbsp;
-function isEven(num) {
-  return num % 2 === 0;
-}
+// const alwaysTrue = () =&gt; true;
 &nbsp;
-describe('isEven', () =&gt; {
-  it('should return true when number is even ', () =&gt; {
-    isEven(4).should.be.true;
+// const { alwaysTrue } = require('./example');
+&nbsp;
+// chai.should();
+&nbsp;
+// describe('#mocha basics', () =&gt; {
+//   it('true should be true', () =&gt; {
+//     true.should.be.true;
+//   });
+//   it('Iexpect true to be true', () =&gt; {
+//     expect(true).to.be.true;
+//   });
+// });
+&nbsp;
+// describe('#alwaysTrue', () =&gt; {
+//   it('should always return true', () =&gt; {
+//     alwaysTrue().should.be.true;
+//   });
+//   it('I expect it to always be true', () =&gt; {
+//     expect(alwaysTrue()).to.be.true;
+//   });
+//   it('should not be false', () =&gt; {
+//     alwaysTrue().should.not.be.false;
+//   });
+// });
+&nbsp;
+describe('capitalize', () =&gt; {
+  it('should capitalize asingle word', () =&gt; {
+    expect(capitalize('express')).to.equal('Express');
+    expect(capitalize('cats')).to.equal('Cats');
   });
-  it('should return false when number is odd', () =&gt; {
-    expect(isEven(5)).to.be.false;
+  it('Should make the rest of the string lowercase', () =&gt; {
+    expect(capitalize('javascript')).to.equal('Javascript');
   });
-});
-&nbsp;
-function add(num1, num2) {
-  return num1 + num2;
-}
-&nbsp;
-describe('add without setup/teardown', () =&gt; {
-  let num;
-  beforeEach(() =&gt; {
-    num = 5;
+  it('Should leave empty strings alone', () =&gt; {
+    expect(capitalize(' ')).to.equal(' ');
+    expect(capitalize('123')).to.equal('123');
+  });
+  it('Should capitalize multiple-word strings', () =&gt; {
+    expect(capitalize('what is Express')).to.equal('What is express');
+    expect(capitalize('i love lamp')).to.equal('I love lamp');
   });
 &nbsp;
-  it('should be ten when adding 5 to 5', () =&gt; {
-    num = add(num, 5);
-    num.should.equal(10);
+  it('Should leave already capitalized words alone', () =&gt; {
+    expect(capitalize('Express')).to.equal('Express');
+    expect(capitalize('Evan')).to.equal('Evan');
+    expect(capitalize('Catman')).to.equal('Catman');
+  });
+  it('Should capitalize String objects without changing their values', () =&gt; {
+    const str = new String('who is Javascript');
+    expect(capitalize(str)).to.equal('Who is javascript');
+    expect(str.valueOf()).to.equal('who is Javascript');
+  });
+  it('Should throw an error if passed a number', () =&gt; {
+    expect(() =&gt; {
+      capitalize(123);
+    }).to.throw(Error);
   });
 });
 &nbsp;</pre></td></tr>
@@ -148,7 +244,7 @@ describe('add without setup/teardown', () =&gt; {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Feb 05 2019 11:51:25 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Tue Feb 05 2019 21:29:02 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="prettify.js"></script>
