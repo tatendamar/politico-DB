@@ -1,7 +1,7 @@
 //
 const app = require('express')();
 // const router = express.Router();
-const day = require('./utils/date');
+// const day = require('./utils/date');
 
 let party = {
   status: 200,
@@ -13,8 +13,8 @@ let party = {
       email: 'tatevf@hfhf.com',
       city: 'Cape Town',
       logo:
-        'https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png',
-      dateCreated: day
+        'https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png'
+      // dateCreated: day
     },
     {
       id: 2,
@@ -22,8 +22,8 @@ let party = {
       email: 'tatevf@hfhf.com',
       address: 'no 89 cross road',
       city: 'Cape Town',
-      logo: 'https://farm7.staticflickr.com/6057/6262125702_a086dd49f1.jpg',
-      dateCreated: day
+      logo: 'https://farm7.staticflickr.com/6057/6262125702_a086dd49f1.jpg'
+      // dateCreated: day
     }
   ]
 };
@@ -57,8 +57,8 @@ app.get('/parties/:partyId', (req, res, next) => {
             address: col.address,
             email: col.email,
             city: col.city,
-            logo: col.logo,
-            dateCreated: col.dateCreated
+            logo: col.logo
+            // dateCreated: col.dateCreated
           }
         : 'Not Found'
     )
@@ -96,8 +96,8 @@ app.post('/parties', (req, res, next) => {
         email: newPart.email,
         address: newPart.address,
         city: newPart.city,
-        logo: newPart.logo,
-        dateCreated: day
+        logo: newPart.logo
+        // dateCreated: day
       }
     ]
   });
