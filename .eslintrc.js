@@ -7,7 +7,13 @@ module.exports = {
   rules: {
     'linebreak-style': 0,
     'no-console': 'off',
-    semi: ['error', 'always']
+    semi: ['error', 'always'],
+    'no-unused-vars': [
+      'error',
+      {
+        varsIgnorePattern: 'should|expect'
+      }
+    ]
   },
 
   parserOptions: {
@@ -19,6 +25,7 @@ module.exports = {
     es6: true,
     commonjs: true,
     browser: true,
-    amd: true
+    amd: true,
+    mocha: true
   }
 };
