@@ -1,6 +1,6 @@
 //
 const app = require('express')();
-// const router = express.Router();
+
 // const day = require('./utils/date');
 
 let party = {
