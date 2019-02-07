@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">57.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>10/40</span>
+        <span class='fraction'>23/40</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">56.25% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/16</span>
+        <span class='fraction'>9/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">10% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/10</span>
+        <span class='fraction'>6/10</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">57.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/40</span>
+        <span class='fraction'>23/40</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -227,20 +227,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -316,17 +316,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -371,21 +371,21 @@ app.get('/parties', (req, res, next) =&gt; {
 });
 &nbsp;
 //get a party by id
-app.get('/parties/:partyId', <span class="fstat-no" title="function not covered" >(r</span>eq, res, next) =&gt; {
-  const id = <span class="cstat-no" title="statement not covered" >req.params.partyId;</span>
+app.get('/parties/:partyId', (req, res, next) =&gt; {
+  const id = req.params.partyId;
 &nbsp;
-  let found = <span class="cstat-no" title="statement not covered" >false;</span>
+  let found = false;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  party['data'].forEach(<span class="fstat-no" title="function not covered" >(p</span>arty, index, array) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!found &amp;&amp; party.id === parseInt(id)) {</span>
-<span class="cstat-no" title="statement not covered" >      array.slice(0, index);</span>
+  party['data'].forEach((party, index, array) =&gt; {
+    if (!found &amp;&amp; party.id === parseInt(id)) {
+      array.slice(0, index);
     }
   });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  res.send({</span>
+  res.send({
     status: party.status,
-    data: party.data.map(<span class="fstat-no" title="function not covered" >co</span>l =&gt;
-<span class="cstat-no" title="statement not covered" >      col.id === parseInt(id)</span>
+    data: party.data.map(col =&gt;
+      col.id === parseInt(id)
         ? {
             id: col.id,
             name: col.name,
@@ -411,7 +411,7 @@ app.post('/parties', <span class="fstat-no" title="function not covered" >(r</sp
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  currentId++;</span>
 &nbsp;
-  const newPart = <span class="cstat-no" title="statement not covered" >{</span>
+  let newPart = <span class="cstat-no" title="statement not covered" >{</span>
     id: currentId,
     name: name,
     email: email,
@@ -423,7 +423,7 @@ app.post('/parties', <span class="fstat-no" title="function not covered" >(r</sp
 <span class="cstat-no" title="statement not covered" >  party['data'].push(newPart);</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  res.send({</span>
-    status: 201,
+    status: party.status,
     data: [
       {
         id: newPart.id,
@@ -460,18 +460,18 @@ app.put('/parties/:partyId', <span class="fstat-no" title="function not covered"
 });
 &nbsp;
 //delete parties
-app.delete('/parties/:partyId', <span class="fstat-no" title="function not covered" >(r</span>eq, res, next) =&gt; {
-  const id = <span class="cstat-no" title="statement not covered" >req.params.partyId;</span>
+app.delete('/parties/:partyId', (req, res, next) =&gt; {
+  const id = req.params.partyId;
 &nbsp;
-  let found = <span class="cstat-no" title="statement not covered" >false;</span>
+  let found = false;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  party['data'].forEach(<span class="fstat-no" title="function not covered" >(p</span>arty, index, array) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!found &amp;&amp; party.id === parseInt(id)) {</span>
-<span class="cstat-no" title="statement not covered" >      array.splice(index, 1);</span>
+  party['data'].forEach((party, index, array) =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (!found &amp;&amp; party.id === parseInt(id)) {
+      array.splice(index, 1);
     }
   });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  res.send({</span>
+  res.send({
     status: party.status,
     data: [{ maessage: 'party deleted successfully' }]
   });
@@ -484,7 +484,7 @@ module.exports = app;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 06 2019 16:35:24 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 07 2019 16:39:13 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="prettify.js"></script>

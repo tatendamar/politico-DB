@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/21</span>
+        <span class='fraction'>15/21</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>4/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">71.43% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/21</span>
+        <span class='fraction'>15/21</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line medium'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -159,25 +159,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -248,26 +248,26 @@ let office = {
 let currentId = 2;
 &nbsp;
 //get parties
-router.get('/offices', <span class="fstat-no" title="function not covered" >(r</span>eq, res, next) =&gt; {
-<span class="cstat-no" title="statement not covered" >  res.send({ office });</span>
+router.get('/offices', (req, res, next) =&gt; {
+  res.send({ office });
 });
 &nbsp;
 //get a party by id
-router.get('/offices/:officeId', <span class="fstat-no" title="function not covered" >(r</span>eq, res, next) =&gt; {
-  const id = <span class="cstat-no" title="statement not covered" >req.params.officeId;</span>
+router.get('/offices/:officeId', (req, res, next) =&gt; {
+  const id = req.params.officeId;
 &nbsp;
-  let found = <span class="cstat-no" title="statement not covered" >false;</span>
+  let found = false;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  office['data'].forEach(<span class="fstat-no" title="function not covered" >(o</span>ffice, index, array) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!found &amp;&amp; office.id === parseInt(id)) {</span>
-<span class="cstat-no" title="statement not covered" >      array.slice(0, index);</span>
+  office['data'].forEach((office, index, array) =&gt; {
+    if (!found &amp;&amp; office.id === parseInt(id)) {
+      array.slice(0, index);
     }
   });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  res.send({</span>
+  res.send({
     status: office.status,
-    data: office.data.map(<span class="fstat-no" title="function not covered" >co</span>l =&gt;
-<span class="cstat-no" title="statement not covered" >      col.id === parseInt(id)</span>
+    data: office.data.map(col =&gt;
+      col.id === parseInt(id)
         ? {
             id: col.id,
             name: col.name,
@@ -319,7 +319,7 @@ module.exports = router;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Wed Feb 06 2019 16:35:24 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 07 2019 16:39:13 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="prettify.js"></script>
