@@ -4,9 +4,6 @@
 
 [![codecov](https://codecov.io/gh/tatendamar/politico/branch/develop/graph/badge.svg)](https://codecov.io/gh/tatendamar/politico)
 
-[![Coverage Status](https://coveralls.io/repos/github/tatendamar/politico/badge.svg?branch=develop)](https://coveralls.io/github/tatendamar/politico?branch=develop)
-
-![](https://img.shields.io/coveralls/github/tatendamar/politico.svg?style=flat)
 
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/tatendamar/politico)
 

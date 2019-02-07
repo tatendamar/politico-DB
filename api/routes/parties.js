@@ -76,7 +76,7 @@ app.post('/parties', (req, res, next) => {
 
   currentId++;
 
-  const newPart = {
+  let newPart = {
     id: currentId,
     name: name,
     email: email,
@@ -88,7 +88,7 @@ app.post('/parties', (req, res, next) => {
   party['data'].push(newPart);
 
   res.send({
-    status: 201,
+    status: party.status,
     data: [
       {
         id: newPart.id,

@@ -1,11 +1,9 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
+let app = require('express')();
+let bodyParser = require('body-parser');
+let morgan = require('morgan');
 
-const partyRoutes = require('./api/routes/parties');
-const officeRoutes = require('./api/routes/offices');
-
-const app = express();
+let partyRoutes = require('./api/routes/parties');
+let officeRoutes = require('./api/routes/offices');
 
 app.use(morgan('dev'));
 
@@ -45,7 +43,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-const port = process.env.PORT || 4000;
+let port = process.env.PORT || 4000;
 
 //listen for request
 app.listen(port, () => {
