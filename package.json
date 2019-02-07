@@ -4,7 +4,7 @@
   "description": "a political site\r This project will address transparency issues during election periods,\r It will allow users to vote for their candidates and allow the electoral body can register/create political parties and allow users to vote for their political candidate who belongs to a political office",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index",
+    "start": "node index.js",
     "test": "mocha  ./tests/index.test.js",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha  ./tests/index.test.js"
   },
