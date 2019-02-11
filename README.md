@@ -6,8 +6,6 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/f8b081557397be46329f/maintainability)](https://codeclimate.com/github/tatendamar/politico/maintainability)
 
-[![Coverage Status](https://coveralls.io/repos/github/tatendamar/politico/badge.svg?branch=develop)](https://coveralls.io/github/tatendamar/politico?branch=develop)
-
 ![](https://img.shields.io/david/dev/tatendamar/politico.svg?style=flat)
 
 ![](https://img.shields.io/npm/l/express.svg?style=flat)
