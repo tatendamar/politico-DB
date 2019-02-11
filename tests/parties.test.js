@@ -7,11 +7,6 @@ var serverParty = require('../api/routes/parties');
 
 chai.use(chaiHttp);
 
-let party = {
-  name: 'Rexford',
-  email: 'email@email.com'
-};
-
 describe('Parties API Integration Tests', () => {
   describe('#GET /parties', () => {
     it('should get all parties', done => {
@@ -55,15 +50,31 @@ describe('Parties API Integration Tests', () => {
   describe('/PUT party', () => {
     it('should EDIT a party with name field', done => {
       const id = 1;
+
+      let options = {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
       chai
         .request(serverParty)
         .put(`/parties/${id}`)
-        .send({ name: '123' })
-        .end((err, res) => {
-          expect(err).to.be.null;
+        //.set('Content-Type', 'application/json')
+        .send({
+          // status: 201,
+          id: 1,
+          name: 'Rexford'
+        })
+
+        .then(res => {
+          expect(res).to.have.status(201);
           expect(res).to.be.a('object');
-          done();
+          expect(res).to.have.property('name');
         });
+
+      done();
+
+      //});
     });
   });
 });
