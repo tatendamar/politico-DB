@@ -21,7 +21,7 @@ It will allow users to vote for their candidates and allow the electoral body ca
 
 these instruction will get you up and running by on your local machine for development and testing.
 
-###Prerequisites
+### Prerequisites
 
 You will nodejs your local machine to run this project locally also you should be familiar with github.
 

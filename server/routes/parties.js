@@ -1,5 +1,5 @@
 const app = require('express')();
-const parties = require('../controllers/parties');
+let parties = require('../controllers/parties');
 
 app
   .route('/parties')

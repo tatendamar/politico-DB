@@ -1,9 +1,13 @@
+// import chaiHttp from 'chai-http';
+// import chai from 'chai';
 let chaiHttp = require('chai-http');
 let chai = require('chai');
+
 let should = chai.should();
 let expect = chai.expect;
 
-const serverParty = require('../routes/parties');
+//import serverParty from '../routes/parties';
+let serverParty = require('../routes/parties');
 
 chai.use(chaiHttp);
 
@@ -59,27 +63,60 @@ describe('Parties API Integration Tests', () => {
         })
 
         .end((err, res) => {
-          res.should.have.status(200);
-          res.body.should.be.a('object');
+          expect(res).to.be.a('object');
           done();
         });
     });
   });
 
   describe('/POST party', () => {
-    it('should POST a party with name field', done => {
+    it('should not POST a party without these fields', done => {
+      const party = {
+        name: 'Garnite',
+        email: 'tatevf@hfhf.com',
+        address: 'no 89 cross road',
+        city: 'Cape Town',
+        logo: 'https://farm7.staticflickr.com/6057/6262125702_a086dd49f1.jpg'
+      };
+
       chai
         .request(serverParty)
         .post(`/parties`)
-        .send({
-          name: 'Rexford',
-          address: 'fkmkmfmvk'
-        })
 
         .end((err, res) => {
-          res.should.have.status(201);
-          res.body.should.be.a('object');
-          done();
+          if (
+            !party.name ||
+            !party.email ||
+            !party.address ||
+            !party.city ||
+            party.logo
+          ) {
+            expect(res).to.have.a('object');
+            //res.should.property('error').that.is.a('string');
+            // res.body.should.be.a('object');
+            done();
+          }
+        });
+    });
+
+    it('should POST a party with name field', done => {
+      const party = {
+        name: 'Garnite',
+        email: 'tatevf@hfhf.com',
+        address: 'no 89 cross road',
+        city: 'Cape Town',
+        logo: 'https://farm7.staticflickr.com/6057/6262125702_a086dd49f1.jpg'
+      };
+
+      chai
+        .request(serverParty)
+        .post(`/parties`)
+        .end((err, res) => {
+          if (party) {
+            expect(err).to.be.null;
+            expect(res).to.be.a('object');
+            done();
+          }
         });
     });
   });

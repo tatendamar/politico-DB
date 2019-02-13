@@ -1,5 +1,10 @@
 "use strict";
 
+var Joi = require('joi');
+
+var JSON = require('circular-json'); //import check from 'express-validator/check';
+
+
 var party = require('../models/parties');
 
 var currentId = 2; //get parties
@@ -32,35 +37,64 @@ var getParty = function getParty(req, res) {
 
 
 var postParty = function postParty(req, res) {
-  // let id = req.body.id;
-  var name = req.body.name;
-  var email = req.body.email;
-  var address = req.body.address;
-  var city = req.body.city;
-  var logo = req.body.logo;
-  currentId++;
-  var newPart = {
-    id: currentId,
-    name: name,
-    email: email,
-    address: address,
-    city: city,
-    logo: logo
-  };
-  party['data'].push(newPart);
-  res.send({
-    status: party.status,
-    data: [{
-      id: newPart.id,
-      name: newPart.name,
-      email: newPart.email,
-      address: newPart.address,
-      city: newPart.city,
-      logo: newPart.logo // dateCreated: day
-
-    }]
+  var createPartySchema = Joi.object().keys({
+    name: Joi.string().min(2).max(30).required(),
+    email: Joi.string().email(),
+    address: Joi.string().alphanum().min(4).max(50),
+    city: Joi.string().alphanum().min(2).max(30),
+    logo: Joi.string()
   });
-}; //edit parties
+  var data = req.body;
+  currentId++;
+  Joi.validate(data, createPartySchema, function (err, result) {
+    if (err) {
+      res.status(442).json({
+        status: 'error',
+        message: 'Invalid request data',
+        data: data
+      });
+    } else {
+      party['data'].push(res.json({
+        status: 'success',
+        message: 'User created successfully',
+        data: Object.assign({
+          id: currentId
+        }, result)
+      }));
+    }
+  });
+}; // let id = req.body.id;
+// let name = req.body.name;
+// let email = req.body.email;
+// let address = req.body.address;
+// let city = req.body.city;
+// let logo = req.body.logo;
+// currentId++;
+//let newPart = {
+//   id: currentId,
+//name: .name
+//   email: email,
+//   address: address,
+//   city: city,
+//   logo: logo
+// };
+// party['data'].push(createPartySchema.getRe);
+// res.send({
+//   status: party.status,
+//   data: [
+//     {
+//       id: newPart.id,
+//       name: newPart.name,
+//       email: newPart.email,
+//       address: newPart.address,
+//       city: newPart.city,
+//       logo: newPart.logo
+//       // dateCreated: day
+//     }
+//   ]
+// });
+//};
+//edit parties
 
 
 var editParty = function editParty(req, res) {

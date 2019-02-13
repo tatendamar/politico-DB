@@ -1,10 +1,16 @@
+// import chaiHttp from 'chai-http';
+// import chai from 'chai';
+
 let chaiHttp = require('chai-http');
 let chai = require('chai');
+
 let should = chai.should();
+let expect = chai.expect;
 
 // This agent refers to PORT where program is runninng.
 
-const serverOffices = require('../routes/officies');
+// import serverOffices from '../routes/officies';
+let serverOffices = require('../routes/officies');
 
 chai.use(chaiHttp);
 
@@ -41,8 +47,7 @@ describe('Offices API Integration Tests', () => {
         .request(serverOffices)
         .post('/officies')
         .end((err, res) => {
-          res.should.have.status(200);
-          res.should.be.a('object');
+          expect(res).to.be.a('object');
           done();
         });
     });
