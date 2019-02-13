@@ -1,4 +1,4 @@
-import party from '../models/parties';
+const party = require('../models/parties');
 
 let currentId = 2;
 
@@ -106,4 +106,4 @@ let deleteParty = (req, res) => {
   });
 };
 
-export default { getParties, getParty, postParty, editParty, deleteParty };
+module.exports = { getParties, getParty, postParty, editParty, deleteParty };

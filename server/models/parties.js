@@ -23,4 +23,4 @@ let party = {
   ]
 };
 
-export default party;
+module.exports = party;

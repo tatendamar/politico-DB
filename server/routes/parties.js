@@ -1,5 +1,5 @@
 const app = require('express')();
-import parties from '../controllers/parties';
+const parties = require('../controllers/parties');
 
 app
   .route('/parties')
@@ -12,4 +12,4 @@ app
   .put(parties.editParty)
   .delete(parties.deleteParty);
 
-export default app;
+module.exports = app;

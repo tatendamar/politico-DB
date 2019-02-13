@@ -1,4 +1,4 @@
-import office from '../models/officies';
+const office = require('../models/officies');
 
 let currentId = 2;
 
@@ -58,4 +58,4 @@ let postOffice = (req, res) => {
   });
 };
 
-export default { getOfficies, getOffice, postOffice };
+module.exports = { getOfficies, getOffice, postOffice };

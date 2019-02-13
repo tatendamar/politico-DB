@@ -16,4 +16,4 @@ let office = {
   ]
 };
 
-export default office;
+module.exports = office;

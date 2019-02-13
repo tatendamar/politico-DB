@@ -1,5 +1,5 @@
 const app = require('express')();
-import officies from '../controllers/officies';
+let officies = require('../controllers/officies');
 
 app
   .route('/officies')
@@ -7,4 +7,4 @@ app
   .post(officies.postOffice);
 app.route('/officies/:officeId').get(officies.getOffice);
 
-export default app;
+module.exports = app;
