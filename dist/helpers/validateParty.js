@@ -1,30 +1,18 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
 
-var Joi = _interopRequireDefault(require('joi'));
+var Joi = require('joi');
 
 var validateParty = function validateParty(party) {
   var schema = {
-    name: Joi.string()
-      .min(2)
-      .max(30)
-      .required(),
-    email: Joi.string()
-      .email()
-      .required(),
-    address: Joi.string()
-      .alphanum()
-      .min(4)
-      .max(50)
-      .required(),
-    city: Joi.string()
-      .min(2)
-      .max(30)
-      .required(),
+    name: Joi.string().min(2).max(30).required(),
+    email: Joi.string().email().required(),
+    address: Joi.string().alphanum().min(4).max(50).required(),
+    city: Joi.string().min(2).max(30).required(),
     logo: Joi.string().required()
   };
   var options = {

@@ -4,7 +4,7 @@
   "description": "a political site\r This project will address transparency issues during election periods,\r It will allow users to vote for their candidates and allow the electoral body can register/create political parties and allow users to vote for their political candidate who belongs to a political office",
   "main": "index.js",
   "scripts": {
-    "start": "node --exec babel-node ./dist/index.js",
+    "start": "node ./dist/index.js",
     "test": "mocha \"./server/tests/*.test.js\" --require @babel/register --exit",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./server/tests/*.test.js",
     "build": "babel index.js server -d dist"
