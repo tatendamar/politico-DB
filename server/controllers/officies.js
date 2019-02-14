@@ -1,4 +1,5 @@
 let office = require('../models/officies');
+const validateOffice = require('../helpers/validateOffice');
 
 let currentId = 2;
 
@@ -30,32 +31,66 @@ let getOffice = (req, res) => {
 
 //post parties
 let postOffice = (req, res) => {
-  // let id = req.body.id;
-  let name = req.body.name;
-  let type = req.body.type;
+  const { name, type } = req.body;
 
+  //let data = req.body;
   currentId++;
 
-  const newOffice = {
+  let newOffice = {
     id: currentId,
     name: name,
     type: type
-    // dateCreated: day
   };
 
-  office['data'].push(newOffice);
+  const { err } = validateOffice(req.body);
 
+  if (err) {
+    res.send({
+      status: 400,
+      error: err.details[0].message
+    });
+  } else {
+    null;
+  }
+
+  office['data'].push(newOffice);
   res.send({
-    status: 201,
+    status: office.status,
     data: [
       {
         id: newOffice.id,
         name: newOffice.name,
         type: newOffice.type
-        // dateCreated: day
       }
     ]
   });
+
+  // let id = req.body.id;
+  // let name = req.body.name;
+  // let type = req.body.type;
+
+  // currentId++;
+
+  // const newOffice = {
+  //   id: currentId,
+  //   name: name,
+  //   type: type
+  //   // dateCreated: day
+  // };
+
+  // office['data'].push(newOffice);
+
+  // res.send({
+  //   status: 201,
+  //   data: [
+  //     {
+  //       id: newOffice.id,
+  //       name: newOffice.name,
+  //       type: newOffice.type
+  //       // dateCreated: day
+  //     }
+  //   ]
+  // });
 };
 
 module.exports = { getOfficies, getOffice, postOffice };

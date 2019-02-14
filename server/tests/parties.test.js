@@ -92,15 +92,15 @@ describe('Parties API Integration Tests', () => {
             party.logo
           ) {
             expect(res).to.have.a('object');
-            //res.should.property('error').that.is.a('string');
-            // res.body.should.be.a('object');
-            done();
+            //expect(res.body).to.have.property('message');
+            done(err);
           }
         });
     });
 
     it('should POST a party with name field', done => {
       const party = {
+        status: 201,
         name: 'Garnite',
         email: 'tatevf@hfhf.com',
         address: 'no 89 cross road',
@@ -112,10 +112,16 @@ describe('Parties API Integration Tests', () => {
         .request(serverParty)
         .post(`/parties`)
         .end((err, res) => {
-          if (party) {
+          if (party.name && party.email) {
+            expect({}).to.exist;
             expect(err).to.be.null;
-            expect(res).to.be.a('object');
-            done();
+            expect(res).to.have.a('object');
+            //expect(res.body.status).to.be.equal(true);
+            expect(res.body)
+              .to.have.property('status')
+              .equal(201);
+
+            done(err);
           }
         });
     });

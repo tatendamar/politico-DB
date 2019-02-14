@@ -1,5 +1,5 @@
 let Joi = require('joi');
-const JSON = require('circular-json');
+const validateParty = require('../helpers/validateParty');
 //import check from 'express-validator/check';
 let party = require('../models/parties');
 
@@ -32,80 +32,51 @@ let getParty = (req, res) => {
 
 //post parties
 let postParty = (req, res) => {
-  const createPartySchema = Joi.object().keys({
-    name: Joi.string()
-      .min(2)
-      .max(30)
-      .required(),
-    email: Joi.string().email(),
-    address: Joi.string()
-      .alphanum()
-      .min(4)
-      .max(50),
-    city: Joi.string()
-      .alphanum()
-      .min(2)
-      .max(30),
-    logo: Joi.string()
-  });
+  const { name, address, email, city, logo } = req.body;
 
-  let data = req.body;
+  //let data = req.body;
   currentId++;
 
-  Joi.validate(data, createPartySchema, (err, result) => {
-    if (err) {
-      res.status(442).json({
-        status: 'error',
-        message: 'Invalid request data',
-        data: data
-      });
-    } else {
-      party['data'].push(
-        res.json({
-          status: 'success',
-          message: 'User created successfully',
-          data: Object.assign({ id: currentId }, result)
-        })
-      );
-    }
+  let newParty = {
+    id: currentId,
+    name: name,
+    email: email,
+    address: address,
+    city: city,
+    logo: logo
+  };
+
+  const err = validateParty(req.body);
+  console.log('JOI Error is', err['error'].details.map(n => console.log(n)));
+
+  let error = err['error'].details.map(n => n.message);
+  for (let i of error) {
+    console.log(i);
+  }
+  console.log(error);
+  if (!name || !email) {
+    return res.send({
+      status: 400,
+      error: error
+    });
+  }
+
+  party['data'].push(newParty);
+  res.send({
+    status: party.status,
+    data: [
+      {
+        id: newParty.id,
+        name: newParty.name,
+        email: newParty.email,
+        address: newParty.address,
+        city: newParty.city,
+        logo: newParty.logo
+        // dateCreated: day
+      }
+    ]
   });
 };
-
-// let id = req.body.id;
-// let name = req.body.name;
-// let email = req.body.email;
-// let address = req.body.address;
-// let city = req.body.city;
-// let logo = req.body.logo;
-
-// currentId++;
-
-//let newPart = {
-//   id: currentId,
-//name: .name
-//   email: email,
-//   address: address,
-//   city: city,
-//   logo: logo
-// };
-
-// party['data'].push(createPartySchema.getRe);
-
-// res.send({
-//   status: party.status,
-//   data: [
-//     {
-//       id: newPart.id,
-//       name: newPart.name,
-//       email: newPart.email,
-//       address: newPart.address,
-//       city: newPart.city,
-//       logo: newPart.logo
-//       // dateCreated: day
-//     }
-//   ]
-// });
-//};
 
 //edit parties
 let editParty = (req, res) => {

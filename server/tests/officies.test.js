@@ -41,12 +41,13 @@ describe('Offices API Integration Tests', () => {
     });
   });
 
-  describe('#GET /officies', () => {
+  describe('#POST /officies', () => {
     it('should post a single office', done => {
       chai
         .request(serverOffices)
         .post('/officies')
         .end((err, res) => {
+          expect(err).to.be.null;
           expect(res).to.be.a('object');
           done();
         });
