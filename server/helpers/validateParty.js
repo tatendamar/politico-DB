@@ -1,4 +1,4 @@
-let Joi = require('joi');
+const Joi = require('joi');
 
 const validateParty = party => {
   const schema = {
@@ -30,4 +30,4 @@ const validateParty = party => {
   return Joi.validate(party, schema, options);
 };
 
-module.exports = validateParty;
+export default validateParty;

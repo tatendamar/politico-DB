@@ -1,5 +1,5 @@
 const app = require('express')();
-let parties = require('../controllers/parties');
+import parties from '../controllers/parties';
 
 app
   .route('/parties')
@@ -7,9 +7,8 @@ app
   .post(parties.postParty);
 app
   .route('/parties/:partyId')
-
   .get(parties.getParty)
-  .put(parties.editParty)
   .delete(parties.deleteParty);
+app.route('/parties/:partyId/name').put(parties.editParty);
 
-module.exports = app;
+export default app;

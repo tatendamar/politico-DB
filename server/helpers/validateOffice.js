@@ -1,4 +1,4 @@
-let Joi = require('joi');
+import Joi from 'joi';
 
 const validateOffice = office => {
   const schema = {
@@ -21,4 +21,4 @@ const validateOffice = office => {
   return Joi.validate(office, schema, options);
 };
 
-module.exports = validateOffice;
+export default validateOffice;

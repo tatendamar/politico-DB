@@ -1,15 +1,15 @@
-let office = require('../models/officies');
-const validateOffice = require('../helpers/validateOffice');
+import office from '../models/officies';
+import validateOffice from '../helpers/validateOffice';
 
 let currentId = 2;
 
 //get parties
-let getOfficies = (req, res) => {
+const getOfficies = (req, res) => {
   res.send({ office });
 };
 
 //get a party by id
-let getOffice = (req, res) => {
+const getOffice = (req, res) => {
   const id = req.params.officeId;
 
   let found = office['data'].find(office => {
@@ -30,7 +30,7 @@ let getOffice = (req, res) => {
 };
 
 //post parties
-let postOffice = (req, res) => {
+const postOffice = (req, res) => {
   const { name, type } = req.body;
 
   //let data = req.body;
@@ -64,33 +64,6 @@ let postOffice = (req, res) => {
       }
     ]
   });
-
-  // let id = req.body.id;
-  // let name = req.body.name;
-  // let type = req.body.type;
-
-  // currentId++;
-
-  // const newOffice = {
-  //   id: currentId,
-  //   name: name,
-  //   type: type
-  //   // dateCreated: day
-  // };
-
-  // office['data'].push(newOffice);
-
-  // res.send({
-  //   status: 201,
-  //   data: [
-  //     {
-  //       id: newOffice.id,
-  //       name: newOffice.name,
-  //       type: newOffice.type
-  //       // dateCreated: day
-  //     }
-  //   ]
-  // });
 };
 
-module.exports = { getOfficies, getOffice, postOffice };
+export default { getOfficies, getOffice, postOffice };

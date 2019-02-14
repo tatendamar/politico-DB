@@ -1,4 +1,4 @@
-let party = {
+const party = {
   status: 200,
   data: [
     {
@@ -23,4 +23,4 @@ let party = {
   ]
 };
 
-module.exports = party;
+export default party;

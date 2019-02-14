@@ -1,17 +1,16 @@
-let Joi = require('joi');
-const validateParty = require('../helpers/validateParty');
+import validateParty from '../helpers/validateParty';
 //import check from 'express-validator/check';
-let party = require('../models/parties');
+import party from '../models/parties';
 
 let currentId = 2;
 
 //get parties
-let getParties = (req, res) => {
+const getParties = (req, res) => {
   res.send({ party });
 };
 
 //get a party by id
-let getParty = (req, res) => {
+const getParty = (req, res) => {
   const id = req.params.partyId;
   let found = party['data'].find(party => {
     return party.id === parseInt(id);
@@ -31,7 +30,7 @@ let getParty = (req, res) => {
 };
 
 //post parties
-let postParty = (req, res) => {
+const postParty = (req, res) => {
   const { name, address, email, city, logo } = req.body;
 
   //let data = req.body;
@@ -79,7 +78,7 @@ let postParty = (req, res) => {
 };
 
 //edit parties
-let editParty = (req, res) => {
+const editParty = (req, res) => {
   const id = req.params.partyId;
   let newName = req.body.name;
 
@@ -102,7 +101,7 @@ let editParty = (req, res) => {
 };
 
 //delete parties
-let deleteParty = (req, res) => {
+const deleteParty = (req, res) => {
   const id = req.params.partyId;
 
   let found = false;
@@ -119,4 +118,4 @@ let deleteParty = (req, res) => {
   });
 };
 
-module.exports = { getParties, getParty, postParty, editParty, deleteParty };
+export default { getParties, getParty, postParty, editParty, deleteParty };

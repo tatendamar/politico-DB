@@ -1,13 +1,13 @@
-// import chaiHttp from 'chai-http';
-// import chai from 'chai';
-let chaiHttp = require('chai-http');
-let chai = require('chai');
+import chaiHttp from 'chai-http';
+import chai from 'chai';
+// let chaiHttp = require('chai-http');
+// let chai = require('chai');
 
 let should = chai.should();
 let expect = chai.expect;
 
 //import serverParty from '../routes/parties';
-let serverParty = require('../routes/parties');
+import serverParty from '../routes/parties';
 
 chai.use(chaiHttp);
 

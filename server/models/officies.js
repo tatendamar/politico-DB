@@ -1,4 +1,4 @@
-let office = {
+const office = {
   status: 200,
   data: [
     {
@@ -16,4 +16,4 @@ let office = {
   ]
 };
 
-module.exports = office;
+export default office;

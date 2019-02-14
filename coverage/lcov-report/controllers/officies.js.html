@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60.87% </span>
+        <span class="strong">30.43% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>14/23</span>
+        <span class='fraction'>7/23</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">25% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/4</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60.87% </span>
+        <span class="strong">30.43% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>14/23</span>
+        <span class='fraction'>7/23</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -146,19 +146,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,7 +172,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -241,20 +241,20 @@ const validateOffice = require('../helpers/validateOffice');
 let currentId = 2;
 &nbsp;
 //get parties
-let getOfficies = (req, res) =&gt; {
-  res.send({ office });
+let getOfficies = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >  res.send({ office });</span>
 };
 &nbsp;
 //get a party by id
-let getOffice = (req, res) =&gt; {
-  const id = req.params.officeId;
+let getOffice = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+  const id = <span class="cstat-no" title="statement not covered" >req.params.officeId;</span>
 &nbsp;
-  let found = office['data'].find(office =&gt; {
-    return office.id === parseInt(id);
+  let found = <span class="cstat-no" title="statement not covered" >office['data'].find(<span class="fstat-no" title="function not covered" >of</span>fice =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    return office.id === parseInt(id);</span>
   });
 &nbsp;
-  <span class="missing-if-branch" title="else path not taken" >E</span>if (found) {
-    return res.send({
+<span class="cstat-no" title="statement not covered" >  if (found) {</span>
+<span class="cstat-no" title="statement not covered" >    return res.send({</span>
       status: office.status,
       data: found
     });
@@ -267,8 +267,8 @@ let getOffice = (req, res) =&gt; {
 };
 &nbsp;
 //post parties
-let postOffice = (req, res) =&gt; {
-  const { name, type } = req.body;
+let postOffice = <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
+  const { name, type } = <span class="cstat-no" title="statement not covered" >req.body;</span>
 &nbsp;
   //let data = req.body;
 <span class="cstat-no" title="statement not covered" >  currentId++;</span>
@@ -337,7 +337,7 @@ module.exports = { getOfficies, getOffice, postOffice };
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 14 2019 13:27:06 GMT+0200 (South Africa Standard Time)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Feb 14 2019 17:08:39 GMT+0200 (South Africa Standard Time)
 </div>
 </div>
 <script src="..\prettify.js"></script>

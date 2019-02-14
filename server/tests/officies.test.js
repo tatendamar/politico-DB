@@ -1,16 +1,16 @@
-// import chaiHttp from 'chai-http';
-// import chai from 'chai';
+import chaiHttp from 'chai-http';
+import chai from 'chai';
 
-let chaiHttp = require('chai-http');
-let chai = require('chai');
+// let chaiHttp = require('chai-http');
+// let chai = require('chai');
 
 let should = chai.should();
 let expect = chai.expect;
 
 // This agent refers to PORT where program is runninng.
 
-// import serverOffices from '../routes/officies';
-let serverOffices = require('../routes/officies');
+import serverOffices from '../routes/officies';
+//let serverOffices = require('../routes/officies');
 
 chai.use(chaiHttp);
 
