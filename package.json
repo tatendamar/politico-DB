@@ -4,9 +4,13 @@
   "description": "a political site\r This project will address transparency issues during election periods,\r It will allow users to vote for their candidates and allow the electoral body can register/create political parties and allow users to vote for their political candidate who belongs to a political office",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "mocha  ./tests/index.test.js",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha  ./tests/index.test.js"
+    "start": "nodemon --exec babel-node index.js",
+    "test": "mocha \"./server/tests/*.test.js\" --require @babel/register --exit",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./server/tests/*.test.js",
+    "build": "babel index.js server -d dist"
+  },
+  "post-scripts": {
+    "build": "babel --presets es2015 index.js server -d dist"
   },
   "repository": {
     "type": "git",
@@ -15,19 +19,28 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "engines":{
-   "node": ">=8.0.0 <11.0.0"
+  "engines": {
+    "node": ">=8.0.0 <11.0.0"
   },
   "bugs": {
     "url": "https://github.com/tatendamar/politico/issues"
   },
   "homepage": "https://github.com/tatendamar/politico#readme",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "body-parser": "^1.18.3",
+    "circular-json": "^0.5.9",
     "express": "^4.16.4",
+    "express-validator": "^5.3.1",
     "morgan": "^1.9.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "coveralls": "^3.0.2",
@@ -37,15 +50,11 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "istanbul": "^1.0.0-alpha.2",
+    "joi": "^14.3.1",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
     "should": "^13.2.3",
     "sinon": "^7.2.3",
     "supertest": "^3.4.2"
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
   }
 }

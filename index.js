@@ -1,14 +1,16 @@
 let app = require('express')();
-let bodyParser = require('body-parser');
-let morgan = require('morgan');
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
-let partyRoutes = require('./api/routes/parties');
-let officeRoutes = require('./api/routes/offices');
+import partyRoutes from './server/routes/parties';
+import officeRoutes from './server/routes/officies';
 
 app.use(morgan('dev'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: 'application/json' }));
 
 //configuring cores
 app.use((req, res, next) => {
@@ -34,7 +36,7 @@ app.use((req, res, next) => {
   next(error);
 });
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   res.status(err.status || 500);
   res.json({
     error: {
