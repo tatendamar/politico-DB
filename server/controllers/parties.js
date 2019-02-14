@@ -36,7 +36,7 @@ const postParty = (req, res) => {
   //let data = req.body;
   currentId++;
 
-  let newParty = {
+  const newParty = {
     id: currentId,
     name: name,
     email: email,

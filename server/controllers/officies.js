@@ -42,15 +42,19 @@ const postOffice = (req, res) => {
     type: type
   };
 
-  const { err } = validateOffice(req.body);
+  const err = validateOffice(req.body);
+  console.log('JOI Error is', err['error'].details.map(n => console.log(n)));
 
-  if (err) {
-    res.send({
+  let error = err['error'].details.map(n => n.message);
+  for (let i of error) {
+    console.log(i);
+  }
+  console.log(error);
+  if (!name || !email) {
+    return res.send({
       status: 400,
-      error: err.details[0].message
+      error: error
     });
-  } else {
-    null;
   }
 
   office['data'].push(newOffice);
