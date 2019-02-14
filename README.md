@@ -40,13 +40,170 @@ run `npm run coverage` to see the statistics
 
 ### API Endpoints
 
-##### Parties
+##### The expected endpoints output
+
+###### Parties
 
 [parties](https://blooming-island-55814.herokuapp.com/api/v1/parties)
 
+```
+POST /parties
+```
+
+```
+{
+    "status": 200,
+    "data": [
+        {
+            "id": 3,
+            "name": "addgggg",
+            "email": "tatevf@hfhf.com",
+            "address": "no 6 nelson mandela way",
+            "city": "Cape Town",
+            "logo": "https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png"
+        }
+    ]
+}
+```
+
+```
+GET /parties
+```
+
+```
+{
+    "party": {
+        "status": 200,
+        "data": [
+            {
+                "id": 1,
+                "name": "New Poetr",
+                "address": "no 6 nelson mandela way",
+                "email": "tatevf@hfhf.com",
+                "city": "Cape Town",
+                "logo": "https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png"
+            }
+    }
+}
+
+```
+
+```
+GET /parties/:id
+```
+
+```
+{
+    "status": 200,
+    "data": {
+        "id": 1,
+        "name": "New Poetr",
+        "address": "no 6 nelson mandela way",
+        "email": "tatevf@hfhf.com",
+        "city": "Cape Town",
+        "logo": "https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png"
+    }
+}
+```
+
+```
+PUT /parties/:id
+```
+
+```
+{
+    "status": 200,
+    "data": {
+        "id": 1,
+        "name": "addgggg",
+        "address": "no 6 nelson mandela way",
+        "email": "tatevf@hfhf.com",
+        "city": "Cape Town",
+        "logo": "https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png"
+    }
+}
+```
+
+```
+DELETE /parties/:id
+```
+
+```
+{
+    "status": 200,
+    "data": {
+        "id": 1,
+        "name": "addgggg",
+        "address": "no 6 nelson mandela way",
+        "email": "tatevf@hfhf.com",
+        "city": "Cape Town",
+        "logo": "https://pixabay.com/get/ea35b2072cf71c22d2524518b7444795ea76e5d004b014459cf1c17aaeebb2_340.png"
+    }
+}
+```
+
 ##### Offices
 
+```
 [offices](https://blooming-island-55814.herokuapp.com/api/v1/offices)
+
+```
+
+```
+GET /offices
+```
+
+```
+{
+    "office": {
+        "status": 200,
+        "data": [
+            {
+                "id": 1,
+                "name": "member of parliament",
+                "type": "House of representatives"
+            },
+            {
+                "id": 2,
+                "name": "Campaign Manager",
+                "type": "Department of information"
+            }
+        ]
+    }
+}
+```
+
+```
+GET /parties/:id
+```
+
+```
+{
+    "status": 200,
+    "data": {
+        "id": 1,
+        "name": "member of parliament",
+        "type": "House of representatives"
+    }
+}
+```
+
+```
+POST /parties
+```
+
+```
+{
+    "status": 200,
+    "data": [
+        {
+            "id": 3,
+            "name": "no 6 nelson mandela way",
+            "type": "tatevf@hfhf.com"
+        }
+    ]
+}
+```
 
 ## License
 
