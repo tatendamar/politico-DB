@@ -144,10 +144,7 @@ DELETE /parties/:id
 
 ##### Offices
 
-```
 [offices](https://blooming-island-55814.herokuapp.com/api/v1/offices)
-
-```
 
 ```
 GET /offices
