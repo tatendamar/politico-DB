@@ -7,7 +7,7 @@ exports.default = void 0;
 
 var _officies = _interopRequireDefault(require("../models/officies"));
 
-var _validateOffice2 = _interopRequireDefault(require("../helpers/validateOffice"));
+var _validateOffice = _interopRequireDefault(require("../helpers/validateOffice"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52,17 +52,44 @@ var postOffice = function postOffice(req, res) {
     name: name,
     type: type
   };
+  var err = (0, _validateOffice.default)(req.body);
+  console.log('JOI Error is', err['error'].details.map(function (n) {
+    return console.log(n);
+  }));
+  var error = err['error'].details.map(function (n) {
+    return n.message;
+  });
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
-  var _validateOffice = (0, _validateOffice2.default)(req.body),
-      err = _validateOffice.err;
+  try {
+    for (var _iterator = error[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var i = _step.value;
+      console.log(i);
+    }
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator.return != null) {
+        _iterator.return();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
 
-  if (err) {
-    res.send({
+  console.log(error);
+
+  if (!name || !email) {
+    return res.send({
       status: 400,
-      error: err.details[0].message
+      error: error
     });
-  } else {
-    null;
   }
 
   _officies.default['data'].push(newOffice);

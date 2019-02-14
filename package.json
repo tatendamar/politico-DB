@@ -7,7 +7,9 @@
     "start": "nodemon --exec babel-node index.js",
     "test": "mocha \"./server/tests/*.test.js\" --require @babel/register --exit",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./server/tests/*.test.js",
-    "build": "babel index.js server -d dist"
+    "build": "babel-node tools/index.js && npm run open:dist",
+    "heroku-prebuild": "",
+    "heroku-postbuild": "babel-node tools/index.js"
   },
   "post-scripts": {
     "build": "babel --presets es2015 index.js server -d dist"
