@@ -31,7 +31,9 @@ app.use('/api/v1', partyRoutes);
 app.use('/api/v1', officeRoutes);
 
 app.use((req, res, next) => {
-  const error = new Error('Not found');
+  const error = new Error(
+    'Page Not found,::insert /api/v1/parties && /api/v1/officies in your url to see the the apis'
+  );
   error.status = 404;
   next(error);
 });
