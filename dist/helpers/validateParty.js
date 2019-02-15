@@ -5,22 +5,24 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var Joi = require('joi');
+var _joi = _interopRequireDefault(require("joi"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var validateParty = function validateParty(party) {
   var schema = {
-    name: Joi.string().min(2).max(30).required(),
-    email: Joi.string().email().required(),
-    address: Joi.string().alphanum().min(4).max(50).required(),
-    city: Joi.string().min(2).max(30).required(),
-    logo: Joi.string().required()
+    name: _joi.default.string().min(2).max(30).required(),
+    email: _joi.default.string().email().required(),
+    address: _joi.default.string().alphanum().min(4).max(50).required(),
+    city: _joi.default.string().min(2).max(30).required(),
+    logo: _joi.default.string().required()
   };
   var options = {
     language: {
       msg: '{{msg}}'
     }
   };
-  return Joi.validate(party, schema, options);
+  return _joi.default.validate(party, schema, options);
 };
 
 var _default = validateParty;
