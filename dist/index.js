@@ -46,7 +46,9 @@ app.use(function(req, res, next) {
 app.use('/api/v1', _parties.default);
 app.use('/api/v1', _officies.default);
 app.use(function(req, res, next) {
-  var error = new Error('Not found');
+  var error = new Error(
+    'Page Not found,::insert /api/v1/parties && /api/v1/officies in your url to see the the apis'
+  );
   error.status = 404;
   next(error);
 });
