@@ -1,5 +1,5 @@
-const app = require('express')();
 import officies from '../controllers/officies';
+const app = require('express')();
 
 app
   .route('/officies')

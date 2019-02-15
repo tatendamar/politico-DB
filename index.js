@@ -1,9 +1,10 @@
-let app = require('express')();
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 
 import partyRoutes from './server/routes/parties';
 import officeRoutes from './server/routes/officies';
+
+let app = require('express')();
 
 app.use(morgan('dev'));
 

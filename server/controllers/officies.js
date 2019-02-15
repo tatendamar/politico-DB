@@ -50,7 +50,7 @@ const postOffice = (req, res) => {
     console.log(i);
   }
   console.log(error);
-  if (!name || !email) {
+  if (!name || !type) {
     return res.send({
       status: 400,
       error: error

@@ -109,6 +109,11 @@ const deleteParty = (req, res) => {
   party['data'].forEach((party, index, array) => {
     if (!found && party.id === parseInt(id)) {
       array.splice(index, 1);
+    } else {
+      res.send({
+        status: 404,
+        message: 'the party you wanted to delete was not found'
+      });
     }
   });
 
