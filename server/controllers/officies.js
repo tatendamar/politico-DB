@@ -24,17 +24,17 @@ const postOffice = (req, res) => {
   );
 };
 
-// const getOfficies = (req, res) => {
-//   pool.query('SELECT * FROM officies', (err, officies) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.send({
-//       status: 200,
-//       data: officies.rows
-//     });
-//   });
-// };
+const getOffices = (req, res) => {
+  pool.query('SELECT * FROM officies', (err, officies) => {
+    if (err) {
+      throw err;
+    }
+    res.send({
+      status: 200,
+      data: officies.rows
+    });
+  });
+};
 
 // const getOffice = (req, res) => {
 //   const id = req.params.officeId;
@@ -57,4 +57,4 @@ const postOffice = (req, res) => {
 //   });
 // };
 
-export default { postOffice };
+export default { postOffice, getOffices };

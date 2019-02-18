@@ -2,8 +2,8 @@ import officies from '../controllers/officies';
 const app = require('express')();
 
 app
-  .route('/officies')
-  // .get(officies.getOfficies)
+  .route('/offices')
+  .get(officies.getOffices)
   .post(officies.postOffice);
 //app.route('/officies/:officeId').get(officies.getOffice);
 
