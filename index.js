@@ -1,10 +1,10 @@
-let app = require('express')();
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 
 import partyRoutes from './server/routes/parties';
 import officeRoutes from './server/routes/officies';
 
+const app = require('express')();
 app.use(morgan('dev'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,7 +31,9 @@ app.use('/api/v1', partyRoutes);
 app.use('/api/v1', officeRoutes);
 
 app.use((req, res, next) => {
-  const error = new Error('Not found');
+  const error = new Error(
+    'Not found please add :: /api/v1/parties or /api/v1/officies in your url bar to view the output from my apis'
+  );
   error.status = 404;
   next(error);
 });

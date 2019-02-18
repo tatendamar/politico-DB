@@ -1,8 +1,8 @@
 {
-  "name":"Node.js restFul Api",
+  "name": "Node.js restFul Api",
   "description": "Node.js restFul api with express.js",
-  "repository":"https://github.com/tatendamar/politico",
-  "logo":"http://node-js-simple.herokuapp.com/node.svg",
-  "keywords":["node", "express"],
-  "image":"heroku/nodejs"
+  "repository": "https://github.com/tatendamar/politico",
+  "logo": "http://node-js-simple.herokuapp.com/node.svg",
+  "keywords": ["node", "express"],
+  "image": "heroku/nodejs"
 }
