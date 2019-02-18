@@ -36,25 +36,25 @@ const getOffices = (req, res) => {
   });
 };
 
-// const getOffice = (req, res) => {
-//   const id = req.params.officeId;
-//   pool.query('SELECT * FROM officies WHERE id = $1', [id], (err, office) => {
-//     let found = office.rows.find(office => {
-//       return office.id !== parseInt(id);
-//     });
-//     if (found) {
-//       res.send({
-//         status: 200,
-//         data: found
-//       });
-//     } else {
-//       //FIXME: failiing to return error object
-//       return res.send({
-//         status: 404,
-//         message: 'Invalid party ID'
-//       });
-//     }
-//   });
-// };
+const getOffice = (req, res) => {
+  const id = req.params.officeId;
+  pool.query('SELECT * FROM officies WHERE id = $1', [id], (err, office) => {
+    let found = office.rows.find(office => {
+      return office.id !== parseInt(id);
+    });
+    if (found) {
+      res.send({
+        status: 200,
+        data: found
+      });
+    } else {
+      //FIXME: failiing to return error object
+      return res.send({
+        status: 404,
+        message: 'Invalid party ID'
+      });
+    }
+  });
+};
 
-export default { postOffice, getOffices };
+export default { postOffice, getOffices, getOffice };
