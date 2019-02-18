@@ -3,7 +3,7 @@ const app = require('express')();
 
 app
   .route('/parties')
-  //   .get(parties.getParties)
+  .get(parties.getParties)
   .post(parties.postParty);
 // app
 //   .route('/parties/:partyId')

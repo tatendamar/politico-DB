@@ -33,17 +33,17 @@ const postParty = (req, res) => {
   );
 };
 
-// const getParties = (req, res) => {
-//   pool.query('SELECT * FROM parties', (err, parties) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.send({
-//       status: 200,
-//       data: parties.rows
-//     });
-//   });
-// };
+const getParties = (req, res) => {
+  pool.query('SELECT * FROM parties', (err, parties) => {
+    if (err) {
+      throw err;
+    }
+    res.send({
+      status: 200,
+      data: parties.rows
+    });
+  });
+};
 
 // const getParty = (req, res) => {
 //   const id = req.params.partyId;
@@ -103,4 +103,4 @@ const postParty = (req, res) => {
 //   });
 // };getParties, getParty, editParty, deleteParty
 
-export default { postParty };
+export default { postParty, getParties };
