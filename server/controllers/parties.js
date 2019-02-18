@@ -1,37 +1,37 @@
-// import { Pool } from 'pg';
-// import dotenv from 'dotenv';
-// import uuidv4 from 'uuid/v4';
-// import moment from 'moment';
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
+import uuidv4 from 'uuid/v4';
+import moment from 'moment';
 
-// dotenv.config();
+dotenv.config();
 
-// const pool = new Pool({
-//   connect: process.env.DATABASE_URL
-// });
+const pool = new Pool({
+  connect: process.env.DATABASE_URL
+});
 
-// const postParty = (req, res) => {
-//   const { name, address, email, city, logo } = req.body;
+const postParty = (req, res) => {
+  const { name, address, email, city, logo } = req.body;
 
-//   pool.query(
-//     'INSERT INTO parties(id,name,address,email,city,logo,created_date,modified_date) VALUES($1,$2,$3,$4,$5,$6,$7,$8)',
-//     [
-//       uuidv4(),
-//       name,
-//       address,
-//       email,
-//       city,
-//       logo,
-//       moment(new Date()),
-//       moment(new Date())
-//     ],
-//     (err, results) => {
-//       if (err) {
-//         throw err;
-//       }
-//       res.status(201).send(results);
-//     }
-//   );
-// };
+  pool.query(
+    'INSERT INTO parties(id,name,address,email,city,logo,created_date,modified_date) VALUES($1,$2,$3,$4,$5,$6,$7,$8)',
+    [
+      uuidv4(),
+      name,
+      address,
+      email,
+      city,
+      logo,
+      moment(new Date()),
+      moment(new Date())
+    ],
+    (err, results) => {
+      if (err) {
+        throw err;
+      }
+      res.status(201).send(results);
+    }
+  );
+};
 
 // const getParties = (req, res) => {
 //   pool.query('SELECT * FROM parties', (err, parties) => {
@@ -101,6 +101,6 @@
 //       message: `successfuly deleted party with id: ${id}`
 //     });
 //   });
-// };
+// };getParties, getParty, editParty, deleteParty
 
-// export default { getParties, getParty, postParty, editParty, deleteParty };
+export default { postParty };
