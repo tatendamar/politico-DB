@@ -1,121 +1,106 @@
-import validateParty from '../helpers/validateParty';
-//import check from 'express-validator/check';
-import party from '../models/parties';
+// import { Pool } from 'pg';
+// import dotenv from 'dotenv';
+// import uuidv4 from 'uuid/v4';
+// import moment from 'moment';
 
-let currentId = 2;
+// dotenv.config();
 
-//get parties
-const getParties = (req, res) => {
-  res.send({ party });
-};
+// const pool = new Pool({
+//   connect: process.env.DATABASE_URL
+// });
 
-//get a party by id
-const getParty = (req, res) => {
-  const id = req.params.partyId;
-  let found = party['data'].find(party => {
-    return party.id === parseInt(id);
-  });
+// const postParty = (req, res) => {
+//   const { name, address, email, city, logo } = req.body;
 
-  if (found) {
-    return res.send({
-      status: party.status,
-      data: found
-    });
-  } else {
-    return res.send({
-      status: 404,
-      message: 'Not Found'
-    });
-  }
-};
+//   pool.query(
+//     'INSERT INTO parties(id,name,address,email,city,logo,created_date,modified_date) VALUES($1,$2,$3,$4,$5,$6,$7,$8)',
+//     [
+//       uuidv4(),
+//       name,
+//       address,
+//       email,
+//       city,
+//       logo,
+//       moment(new Date()),
+//       moment(new Date())
+//     ],
+//     (err, results) => {
+//       if (err) {
+//         throw err;
+//       }
+//       res.status(201).send(results);
+//     }
+//   );
+// };
 
-//post parties
-const postParty = (req, res) => {
-  const { name, address, email, city, logo } = req.body;
+// const getParties = (req, res) => {
+//   pool.query('SELECT * FROM parties', (err, parties) => {
+//     if (err) {
+//       throw err;
+//     }
+//     res.send({
+//       status: 200,
+//       data: parties.rows
+//     });
+//   });
+// };
 
-  //let data = req.body;
-  currentId++;
+// const getParty = (req, res) => {
+//   const id = req.params.partyId;
+//   pool.query('SELECT * FROM parties WHERE id = $1', [id], (err, party) => {
+//     let found = party.rows.find(party => {
+//       return party.id !== parseInt(id);
+//     });
+//     if (found) {
+//       res.send({
+//         status: 200,
+//         data: found
+//       });
+//     } else {
+//       //FIXME: failiing to return error object
+//       return res.send({
+//         status: 404,
+//         message: 'Invalid party ID'
+//       });
+//     }
+//   });
+// };
 
-  const newParty = {
-    id: currentId,
-    name: name,
-    email: email,
-    address: address,
-    city: city,
-    logo: logo
-  };
+// const editParty = (req, res) => {
+//   const id = req.params.partyId;
+//   const name = req.body.name;
 
-  const err = validateParty(req.body);
-  console.log('JOI Error is', err['error'].details.map(n => console.log(n)));
+//   pool.query(
+//     'UPDATE parties SET name = $1 WHERE id = $2',
+//     [name, id],
+//     (err, party) => {
+//       if (party) {
+//         res.send({
+//           status: 200,
+//           message: `Party with Id: ${id} edited succeddfully!`
+//         });
+//       } else {
+//         //FIXME: ERROR NOT RETURNING
+//         return res.send({
+//           status: 404,
+//           message: 'Invalid party ID'
+//         });
+//       }
+//     }
+//   );
+// };
 
-  let error = err['error'].details.map(n => n.message);
-  for (let i of error) {
-    console.log(i);
-  }
-  console.log(error);
-  if (!name || !email) {
-    return res.send({
-      status: 400,
-      error: error
-    });
-  }
+// const deleteParty = (req, res) => {
+//   const id = req.params.partyId;
+//   pool.query('DELETE FROM parties WHERE id = $1', [id], (err, party) => {
+//     if (err) {
+//       throw err;
+//     }
+//     res.send({
+//       status: 200,
+//       message: `successfuly deleted party with id: ${id}`
+//     });
+//   });
+// };
 
-  party['data'].push(newParty);
-  res.send({
-    status: party.status,
-    data: [
-      {
-        id: newParty.id,
-        name: newParty.name,
-        email: newParty.email,
-        address: newParty.address,
-        city: newParty.city,
-        logo: newParty.logo
-        // dateCreated: day
-      }
-    ]
-  });
-};
-
-//edit parties
-const editParty = (req, res) => {
-  const id = req.params.partyId;
-  let newName = req.body.name;
-
-  let found = party['data'].find(party => {
-    return party.id === parseInt(id);
-  });
-
-  if (found) {
-    found.name = newName;
-    return res.send({
-      status: party.status,
-      data: found
-    });
-  } else {
-    return res.send({
-      status: 404,
-      message: 'Not Found'
-    });
-  }
-};
-
-//delete parties
-const deleteParty = (req, res) => {
-  const id = req.params.partyId;
-
-  let found = false;
-
-  party['data'].forEach((party, index, array) => {
-    if (!found && party.id === parseInt(id)) {
-      array.splice(index, 1);
-    }
-  });
-
-  res.send({
-    status: party.status,
-    data: [{ maessage: 'party deleted successfully' }]
-  });
-};
-
-export default { getParties, getParty, postParty, editParty, deleteParty };
+// export default { getParties, getParty, postParty, editParty, deleteParty };
