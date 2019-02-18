@@ -66,29 +66,29 @@ const getParty = (req, res) => {
   });
 };
 
-// const editParty = (req, res) => {
-//   const id = req.params.partyId;
-//   const name = req.body.name;
+const editParty = (req, res) => {
+  const id = req.params.partyId;
+  const name = req.body.name;
 
-//   pool.query(
-//     'UPDATE parties SET name = $1 WHERE id = $2',
-//     [name, id],
-//     (err, party) => {
-//       if (party) {
-//         res.send({
-//           status: 200,
-//           message: `Party with Id: ${id} edited succeddfully!`
-//         });
-//       } else {
-//         //FIXME: ERROR NOT RETURNING
-//         return res.send({
-//           status: 404,
-//           message: 'Invalid party ID'
-//         });
-//       }
-//     }
-//   );
-// };
+  pool.query(
+    'UPDATE parties SET name = $1 WHERE id = $2',
+    [name, id],
+    (err, party) => {
+      if (party) {
+        res.send({
+          status: 200,
+          message: `Party with Id: ${id} edited succeddfully!`
+        });
+      } else {
+        //FIXME: ERROR NOT RETURNING
+        return res.send({
+          status: 404,
+          message: 'Invalid party ID'
+        });
+      }
+    }
+  );
+};
 
 // const deleteParty = (req, res) => {
 //   const id = req.params.partyId;
@@ -101,6 +101,6 @@ const getParty = (req, res) => {
 //       message: `successfuly deleted party with id: ${id}`
 //     });
 //   });
-// };getParties, , editParty, deleteParty
+// };getParties, , deleteParty
 
-export default { postParty, getParties, getParty };
+export default { postParty, getParties, getParty, editParty };
