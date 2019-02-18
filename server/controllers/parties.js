@@ -90,17 +90,17 @@ const editParty = (req, res) => {
   );
 };
 
-// const deleteParty = (req, res) => {
-//   const id = req.params.partyId;
-//   pool.query('DELETE FROM parties WHERE id = $1', [id], (err, party) => {
-//     if (err) {
-//       throw err;
-//     }
-//     res.send({
-//       status: 200,
-//       message: `successfuly deleted party with id: ${id}`
-//     });
-//   });
-// };getParties, , deleteParty
+const deleteParty = (req, res) => {
+  const id = req.params.partyId;
+  pool.query('DELETE FROM parties WHERE id = $1', [id], (err, party) => {
+    if (err) {
+      throw err;
+    }
+    res.send({
+      status: 200,
+      message: `successfuly deleted party with id: ${id}`
+    });
+  });
+};
 
-export default { postParty, getParties, getParty, editParty };
+export default { postParty, getParties, getParty, editParty, deleteParty };

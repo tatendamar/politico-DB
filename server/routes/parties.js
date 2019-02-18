@@ -8,7 +8,7 @@ app
 app
   .route('/parties/:partyId')
   .get(parties.getParty)
-  .put(parties.editParty);
-//   .delete(parties.deleteParty);
+  .put(parties.editParty)
+  .delete(parties.deleteParty);
 
 export default app;
