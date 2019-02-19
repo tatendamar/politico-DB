@@ -12,7 +12,7 @@ pool.on('connect', () => {
   console.log('connected!!');
 });
 
-const createTables = () => {
+const createOfficesTable = () => {
   const queryOfficies = `CREATE TABLE IF NOT EXISTS
 
    officies(
@@ -33,7 +33,33 @@ const createTables = () => {
     });
 };
 
-const dropTables = () => {
+const createUserTable = () => {
+  const queryUsers = `CREATE TABLE IF NOT EXISTS
+
+   users(
+     id UUID PRIMARY KEY,
+     firstname VARCHAR(128) NOT NULL,
+     lastname VARCHAR(128) NOT NULL,
+     email VARCHAR(128) UNIQUE NOT NULL,
+     phonenumber VARCHAR(128) NULL,
+     passportUrl VARCHAR(128) NULL,
+     password VARCHAR(128) NOT NULL,
+)`;
+
+  pool
+    .query(queryUsers)
+    .then(res => {
+      console.log(res);
+      pool.end();
+    })
+    .catch(err => {
+      console.log(err);
+      pool.end();
+    });
+};
+
+//DROP OFFICES TABLE
+const dropOfficesTable = () => {
   const queryOfficies = 'DROP TABLE IF EXISTS parties';
   pool
     .query(queryOfficies)
@@ -47,13 +73,41 @@ const dropTables = () => {
     });
 };
 
+// drop users table
+const dropUsersTable = () => {
+  const queryUsers = 'DROP TABLE IF EXISTS parties';
+  pool
+    .query(queryUsers)
+    .then(res => {
+      console.log(res);
+      pool.end();
+    })
+    .catch(err => {
+      console.log(err);
+      pool.end();
+    });
+};
+
+//create tables
+const createTables = () => {
+  createOfficesTable(), createUserTable();
+};
+
+const dropTables = () => {
+  dropOfficesTable(), dropUsersTable();
+};
+
 pool.on('remove', () => {
   console.log('client removed');
   process.exit(0);
 });
 
 module.exports = {
+  createOfficesTable,
+  createUserTable,
   createTables,
+  dropOfficesTable,
+  dropUsersTable,
   dropTables
 };
 

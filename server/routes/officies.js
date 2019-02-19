@@ -5,6 +5,6 @@ app
   .route('/offices')
   .get(officies.getOffices)
   .post(officies.postOffice);
-//app.route('/officies/:officeId').get(officies.getOffice);
+app.route('/offices/:officeId').get(officies.getOffice);
 
 export default app;

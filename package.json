@@ -29,6 +29,7 @@
   "homepage": "https://github.com/tatendamar/politico#readme",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "circular-json": "^0.5.9",
     "dotenv": "^6.2.0",

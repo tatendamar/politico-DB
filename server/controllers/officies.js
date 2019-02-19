@@ -13,7 +13,7 @@ const postOffice = (req, res) => {
   const { name, type } = req.body;
 
   pool.query(
-    'INSERT INTO officies(id,name,type,created_date,modified_date) VALUES($1,$2,$3,$4,$5)',
+    'INSERT INTO officies(id,name,type,created_date,modified_date,) VALUES($1,$2,$3,$4,$5)',
     [uuidv4(), name, type, moment(new Date()), moment(new Date())],
     (err, results) => {
       if (err) {
@@ -36,25 +36,25 @@ const getOffices = (req, res) => {
   });
 };
 
-// const getOffice = (req, res) => {
-//   const id = req.params.officeId;
-//   pool.query('SELECT * FROM officies WHERE id = $1', [id], (err, office) => {
-//     let found = office.rows.find(office => {
-//       return office.id !== parseInt(id);
-//     });
-//     if (found) {
-//       res.send({
-//         status: 200,
-//         data: found
-//       });
-//     } else {
-//       //FIXME: failiing to return error object
-//       return res.send({
-//         status: 404,
-//         message: 'Invalid party ID'
-//       });
-//     }
-//   });
-// };
+const getOffice = (req, res) => {
+  const id = req.params.officeId;
+  pool.query('SELECT * FROM officies WHERE id = $1', [id], (err, office) => {
+    let found = office.rows.find(office => {
+      return office.id !== parseInt(id);
+    });
+    if (found) {
+      res.send({
+        status: 200,
+        data: found
+      });
+    } else {
+      //FIXME: failiing to return error object
+      return res.send({
+        status: 404,
+        message: 'Invalid party ID'
+      });
+    }
+  });
+};
 
-export default { postOffice, getOffices };
+export default { postOffice, getOffices, getOffice };
