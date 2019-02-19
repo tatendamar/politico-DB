@@ -30,8 +30,10 @@ const login = async (req, res) => {
       return res.status(200).send({ message: 'password incorrect' });
     }
     const token = Helper.genToken(rows[0].id);
+    console.log(rows);
     return res.status(200).send({ token });
   } catch (error) {
+    console.log(error);
     return res.status(400).send(error);
   }
 };

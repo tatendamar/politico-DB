@@ -3,6 +3,7 @@ import morgan from 'morgan';
 
 import partyRoutes from './server/routes/parties';
 import officeRoutes from './server/routes/officies';
+import user from './server/routes/login';
 
 const app = require('express')();
 app.use(morgan('dev'));
@@ -29,6 +30,7 @@ app.use((req, res, next) => {
 //init routes using the standard specified
 app.use('/api/v1', partyRoutes);
 app.use('/api/v1', officeRoutes);
+app.use('/auth', user);
 
 app.use((req, res, next) => {
   const error = new Error(
