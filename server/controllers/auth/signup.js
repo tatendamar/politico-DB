@@ -7,10 +7,6 @@ import db from '../../models/index';
 
 dotenv.config();
 
-const pool = new Pool({
-  connect: process.env.DATABASE_URL
-});
-
 const createUser = async (req, res) => {
   if (!req.body.email || !req.body.password) {
     return res.status(400).send({ message: 'missing email and password' });
@@ -43,7 +39,7 @@ const createUser = async (req, res) => {
     const { rows } = await db.query(createQuery, values);
     console.log(rows);
     const token = Helper.genToken(rows[0].id);
-  
+    console.log(token);
     return res.status(201).send({ token });
   } catch (error) {
     if (error.routine === '_bt_check_unique') {

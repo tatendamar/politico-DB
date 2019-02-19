@@ -6,7 +6,6 @@ import officeRoutes from './server/routes/officies';
 import users from './server/routes/signup';
 import user from './server/routes/login';
 
-
 const app = require('express')();
 app.use(morgan('dev'));
 
@@ -32,11 +31,8 @@ app.use((req, res, next) => {
 //init routes using the standard specified
 app.use('/api/v1', partyRoutes);
 app.use('/api/v1', officeRoutes);
-<<<<<<< HEAD
 app.use('/auth', users);
-=======
 app.use('/auth', user);
->>>>>>> ft-login-164069903
 
 app.use((req, res, next) => {
   const error = new Error(
