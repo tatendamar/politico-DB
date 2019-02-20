@@ -61,16 +61,29 @@ const getOffice = async (req, res) => {
   }
 };
 
-const createCandidate = async (req, res) => {
-  const singleQuery = `SELECT * FROM parties WHERE id = $1`;
+// const createCandidate = async (req, res) => {
+//   const { office_id, user_id, party_id } = req.body;
+//   const createQuery = `INSERT INTO candidates(id,office_id,user_id,created_date,modified_date,party_id) VALUES($1,$2,$3,$4,$5,$6)`;
 
-  try {
-    const rows = await db.query(singleQuery, [id]);
-    console.log(rows.row[0].id);
-    return res.status(200).send(rows.rows[0]);
-  } catch (error) {
-    console.log(error);
-  }
-};
+//   const values = [
+//     uuidv4(),
+//     office_id,
+//     user_id,
+//     moment(new Date()),
+//     moment(new Date()),
+//     party_id
+//   ];
+
+//   try {
+//     const rows = await db.query(createQuery, values);
+//     console.log(rows);
+//     return res
+//       .status(201)
+//       .send({ rows: rows[0], message: 'candidated created successfully' });
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(400).send(error);
+//   }
+// };
 
 export default { postOffice, getOffices, getOffice };

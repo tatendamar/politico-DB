@@ -32,6 +32,7 @@ app.use((req, res, next) => {
 //init routes using the standard specified
 app.use('/api/v1', partyRoutes);
 app.use('/api/v1', officeRoutes);
+app.use('/office', officeRoutes);
 app.use('/auth', users);
 app.use('/auth', user);
 

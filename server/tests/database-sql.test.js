@@ -13,6 +13,7 @@ dotenv.config();
 //   connect: process.env.TEST_DATABASE_URL
 // });
 let partyId = 'c19918a0-a993-4fea-8342-49bc4b25e0d7';
+const editName = {"name" : "alvin"};
 
 const { expect } = chai;
 
@@ -73,7 +74,7 @@ describe('GET /api/v1/parties', () => {
 });
 
 describe('GET /api/v1/parties', () => {
-  it('should return a single party', done => {
+  it('should edit a  party', done => {
     chai
       .request(server)
       .put(`/api/v1/parties/${partyId}`)
