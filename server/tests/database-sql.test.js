@@ -9,13 +9,16 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-// const pool = new Pool({
-//   connect: process.env.TEST_DATABASE_URL
-// });
 let partyId = 'c19918a0-a993-4fea-8342-49bc4b25e0d7';
-const editName = {"name" : "alvin"};
+const editName = { name: 'alvin' };
+
+const loginUser = {
+  email: 'kuda@new.com',
+  password: '12345'
+};
 
 const { expect } = chai;
+chai.use(chaiHttp);
 
 const newParty = {
   name: 'Garnite',
@@ -25,10 +28,10 @@ const newParty = {
   logo: 'https://farm7.staticflickr.com/6057/6262125702_a086dd49f1.jpg'
 };
 
-chai.use(chaiHttp);
+chai.request(server).post('/api/v1/auth/login');
 
 describe('GET /api/v1/parties', () => {
-  it('should return post a party', done => {
+  it('should post a party to the database', done => {
     chai
       .request(server)
       .post('/api/v1/parties')
@@ -59,7 +62,7 @@ describe('GET /api/v1/parties', () => {
 });
 
 describe('GET /api/v1/parties', () => {
-  it('should return a single party', done => {
+  it("should return a single party when given the party's id", done => {
     chai
       .request(server)
       .get(`/api/v1/parties/${partyId}`)
@@ -73,16 +76,26 @@ describe('GET /api/v1/parties', () => {
   });
 });
 
-describe('GET /api/v1/parties', () => {
-  it('should edit a  party', done => {
+describe('PUT /api/v1/parties', () => {
+  it('should edit a party when given an ID', done => {
     chai
       .request(server)
       .put(`/api/v1/parties/${partyId}`)
+      .send(editName)
       .end((err, res) => {
         res.should.have.status(200);
-        expect(res.body)
-          .to.have.property('data')
-          .and.to.be.an('object');
+        done();
+      });
+  });
+});
+
+describe('DELETE /api/v1/parties', () => {
+  it("should delete a party when giiven the party's id", done => {
+    chai
+      .request(server)
+      .delete(`/api/v1/parties/${partyId}`)
+      .end((err, res) => {
+        res.should.have.status(200);
         done();
       });
   });

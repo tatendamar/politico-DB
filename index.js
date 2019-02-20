@@ -33,8 +33,8 @@ app.use((req, res, next) => {
 app.use('/api/v1', partyRoutes);
 app.use('/api/v1', officeRoutes);
 app.use('/office', officeRoutes);
-app.use('/auth', users);
-app.use('/auth', user);
+app.use('/api/v1/auth', users);
+app.use('/api/v1/auth', user);
 
 app.use((req, res, next) => {
   const error = new Error(
