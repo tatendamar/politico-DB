@@ -1,4 +1,6 @@
 import dotenv from 'dotenv';
+import 'regenerator-runtime/runtime';
+import '@babel/polyfill';
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
 import db from '../models/index';
@@ -19,8 +21,10 @@ const postOffice = async (req, res) => {
   ];
 
   try {
-    const { rows } = await db.query(createQuery, values);
-    return res.status(201).send(rows[0]);
+    const rows = await db.query(createQuery, values);
+    return res
+      .status(201)
+      .send({ rows: rows[0], message: 'office posted successfully' });
   } catch (error) {
     console.log(error);
     return res.status(400).send(error);
@@ -31,7 +35,7 @@ const getOffices = async (req, res) => {
   const allQuery = 'SELECT * FROM officies';
 
   try {
-    const { rows } = await db.query(allQuery);
+    const rows = await db.query(allQuery);
 
     return res.status(200).send(rows);
   } catch (error) {
@@ -40,19 +44,32 @@ const getOffices = async (req, res) => {
 };
 
 const getOffice = async (req, res) => {
-  const id = req.params.id;
-  const singleQuery = 'SELECT * FROM officies WHERE id = $1';
+  const id = req.params.officeId;
+  const singleQuery = `SELECT * FROM officies WHERE id = $1`;
 
   try {
-    const rows = await db.query(singleQuery, id);
-    console.log(rows[0]);
-    if (!rows[0]) {
-      return res.status(404).SEND({ message: 'not found' });
+    const rows = await db.query(singleQuery, [id]);
+    const newVar = rows.rows[0].id;
+    console.log(newVar);
+    if (!rows.rows[0]) {
+      return res.status(404).send({ message: 'not found' });
     }
-    return res.status(200).send(rows[0]);
+    return res.status(200).send(rows.rows[0]);
   } catch (error) {
     console.log(error);
     return res.status(400).send(error);
+  }
+};
+
+const createCandidate = async (req, res) => {
+  const singleQuery = `SELECT * FROM parties WHERE id = $1`;
+
+  try {
+    const rows = await db.query(singleQuery, [id]);
+    console.log(rows.row[0].id);
+    return res.status(200).send(rows.rows[0]);
+  } catch (error) {
+    console.log(error);
   }
 };
 

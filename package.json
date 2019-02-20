@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node index.js",
-    "test": "mocha \"./server/tests/*.test.js\" --require @babel/register --exit",
+    "test": "mocha \"./server/tests/*.test.js\" --require @babel/register --require @babel/polyfill --exit",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./server/tests/*.test.js",
     "build": "babel index.js server -d dist",
-    "create": "node connect.js createTables"
+    "create": "node \"./server/tests/database-sql.test.js\" createTables"
   },
   "post-scripts": {
     "build": "babel --presets es2015 index.js server -d dist"
@@ -28,28 +28,31 @@
   },
   "homepage": "https://github.com/tatendamar/politico#readme",
   "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
     "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
     "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "circular-json": "^0.5.9",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-validator": "^5.3.1",
+    "joi": "^14.3.1",
     "jsonwebtoken": "^8.4.0",
     "knex": "^0.16.3",
     "make-runnable": "^1.3.6",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "pg": "^7.7.1",
+    "regenerator-runtime": "^0.13.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/node": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/register": "^7.0.0",
-    "babel-preset-es2015": "^6.24.1",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "coveralls": "^3.0.2",
@@ -59,7 +62,6 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.0",
     "istanbul": "^1.0.0-alpha.2",
-    "joi": "^14.3.1",
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
     "should": "^13.2.3",

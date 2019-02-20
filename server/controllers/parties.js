@@ -66,6 +66,24 @@ const getParty = (req, res) => {
   });
 };
 
+// const getParty = async (req, res) => {
+//   const id = req.params.partyId;
+//   const singleQuery = `SELECT * FROM parties WHERE id = $1`;
+
+//   try {
+//     const rows = await db.query(singleQuery, [id]);
+//     const newVar = rows.rows[0].id;
+//     console.log(newVar);
+//     if (!rows.rows[0]) {
+//       return res.status(404).send({ message: 'not found' });
+//     }
+//     return res.status(200).send({ status: 200, data: rows.rows[0] });
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(400).send(error);
+//   }
+// };
+
 const editParty = (req, res) => {
   const id = req.params.partyId;
   const name = req.body.name;
@@ -77,7 +95,7 @@ const editParty = (req, res) => {
       if (party) {
         res.send({
           status: 200,
-          message: `Party with Id: ${id} edited succeddfully!`
+          message: `Party with Id: ${id} edited successfully!`
         });
       } else {
         //FIXME: ERROR NOT RETURNING

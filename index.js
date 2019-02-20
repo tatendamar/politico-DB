@@ -5,6 +5,7 @@ import partyRoutes from './server/routes/parties';
 import officeRoutes from './server/routes/officies';
 import users from './server/routes/signup';
 import user from './server/routes/login';
+import '@babel/polyfill';
 
 const app = require('express')();
 app.use(morgan('dev'));
@@ -54,6 +55,6 @@ app.use((err, req, res) => {
 let port = process.env.PORT || 4000;
 
 //listen for request
-app.listen(port, () => {
+module.exports = app.listen(port, () => {
   console.log('listening for request on port 4000');
 });

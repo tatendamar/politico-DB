@@ -1,6 +1,6 @@
 # politico
 
-[![Build Status](https://travis-ci.com/tatendamar/politico.svg?branch=develop)](https://travis-ci.com/tatendamar/politico)
+[![Build Status](https://travis-ci.com/tatendamar/politico-DB.svg?branch=develop)](https://travis-ci.com/tatendamar/politico-DB)
 
 [![codecov](https://codecov.io/gh/tatendamar/politico/branch/develop/graph/badge.svg)](https://codecov.io/gh/tatendamar/politico)
 
