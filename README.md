@@ -4,9 +4,9 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/tatendamar/politico-DB/badge.svg?branch=develop)](https://coveralls.io/github/tatendamar/politico-DB?branch=develop)
 
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/tatendamar/politico)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9512192128d0e26e4b7b/maintainability)](https://codeclimate.com/github/tatendamar/politico-DB/maintainability)
 
-![](https://img.shields.io/david/dev/tatendamar/politico.svg?style=flat)
+![](https://img.shields.io/david/dev/tatendamar/politico-DB.svg?style=flat)
 
 ![](https://img.shields.io/npm/l/express.svg?style=flat)
 
