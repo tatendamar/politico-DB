@@ -45,7 +45,7 @@ IF NOT EXISTS users
 CREATE TABLE
 IF NOT EXISTS candidates
 (
-      id_candidate UUID  NOT NULL UNIQUE, 
+      id UUID  NOT NULL UNIQUE, 
       office_id UUID REFERENCES  offices
 (id_office) ON
 DELETE CASCADE,
@@ -63,12 +63,12 @@ DELETE CASCADE,
 CREATE TABLE
 IF NOT EXISTS votes
 (
-   id_vote  SERIAL NOT NULL,
+   id UUID NOT NULL,
    createdOn  Date ,
    createdBy  INTEGER REFERENCES users
 (id_user) ON
 DELETE CASCADE,
-   office  INTEGER
+   office  UUID
 REFERENCES offices
 (id_office) ON
 DELETE NO ACTION,

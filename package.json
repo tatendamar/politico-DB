@@ -8,6 +8,7 @@
     "test": "mocha \"./server/tests/*.test.js\" --require @babel/register --require @babel/polyfill --exit",
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./server/tests/*.test.js",
     "build": "babel index.js server -d dist",
+    "heroku-postbuild": "npm install --production",
     "create": "node \"./server/tests/database-sql.test.js\" createTables"
   },
   "post-scripts": {
@@ -21,7 +22,8 @@
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": ">=8.0.0 <11.0.0"
+    "node": ">=8.0.0 <11.0.0",
+    "npm": "6.4.1"
   },
   "bugs": {
     "url": "https://github.com/tatendamar/politico/issues"

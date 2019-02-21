@@ -9,12 +9,14 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-let partyId = 'c19918a0-a993-4fea-8342-49bc4b25e0d7';
-const editName = { name: 'alvin' };
+let partyId = '04f08196-af49-4d13-8856-c13c9ab28fe2';
+let officeId = '9dba250c-b229-46e4-9dab-583d90ef8117';
 
+const editName = { name: 'alvin' };
+let user;
 const loginUser = {
-  email: 'kuda@new.com',
-  password: '12345'
+  password: '12345',
+  email: 'rud@gmail.com'
 };
 
 const { expect } = chai;
@@ -28,9 +30,27 @@ const newParty = {
   logo: 'https://farm7.staticflickr.com/6057/6262125702_a086dd49f1.jpg'
 };
 
-chai.request(server).post('/api/v1/auth/login');
+const newOffice = {
+  name: 'new office from test'
+};
 
-describe('GET /api/v1/parties', () => {
+describe('POST /api/v1/login', () => {
+  it('should login a user', done => {
+    chai
+      .request(server)
+      .post('/api/v1/auth/login')
+      .send(loginUser)
+      .end((err, res) => {
+        res.should.have.status(201);
+        user = res.body.token;
+        //console.log(user);
+
+        done();
+      });
+  });
+});
+
+describe('POST /api/v1/parties', () => {
   it('should post a party to the database', done => {
     chai
       .request(server)
@@ -61,8 +81,8 @@ describe('GET /api/v1/parties', () => {
   });
 });
 
-describe('GET /api/v1/parties', () => {
-  it("should return a single party when given the party's id", done => {
+describe('GET /api/v1/party', () => {
+  it('should return a single party', done => {
     chai
       .request(server)
       .get(`/api/v1/parties/${partyId}`)
@@ -96,6 +116,36 @@ describe('DELETE /api/v1/parties', () => {
       .delete(`/api/v1/parties/${partyId}`)
       .end((err, res) => {
         res.should.have.status(200);
+        done();
+      });
+  });
+});
+
+describe('POST /offices', () => {
+  it('It should create a new office', done => {
+    chai
+      .request(server)
+      .post('/api/v1/offices')
+      .set('authorization', user)
+      .send(newOffice)
+      .end((err, res) => {
+        expect(res).to.have.status(201);
+        done();
+      });
+  });
+});
+
+describe('GET /offices', () => {
+  it('It should return all offices', done => {
+    chai
+      .request(server)
+      .get(`/api/v1/offices/${officeId}`)
+      .set('authorization', user)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body)
+          .to.have.property('data')
+          .and.to.be.an('array');
         done();
       });
   });
