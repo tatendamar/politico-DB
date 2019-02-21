@@ -64,7 +64,7 @@ describe('POST /api/v1/votes', () => {
       .post('/api/v1/votes')
       .send(castVote)
       .end((err, res) => {
-        res.should.have.status(201);
+        +res.should.have.status(201);
         expect(res.body)
           .to.have.property('message')
           .and.to.have('string');
