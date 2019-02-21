@@ -11,8 +11,8 @@ app
   .get('/offices', Auth.verifyToken, officies.getOffices)
   .post('/offices', Auth.verifyToken, officies.postOffice)
   .get('/offices/:officeId', Auth.verifyToken, officies.getOffice)
-  .post('/:officeId/register', officies.createCandidate)
-  .post('/votes', vote.vote)
-  .post('/petition', petition.petition);
+  .post('/:officeId/register', Auth.verifyToken, officies.createCandidate)
+  .post('/votes', Auth.verifyToken, vote.vote)
+  .post('/petition', Auth.verifyToken, petition.petition);
 
 export default app;

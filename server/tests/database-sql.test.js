@@ -9,14 +9,14 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-let partyId = '04f08196-af49-4d13-8856-c13c9ab28fe2';
-let officeId = '9dba250c-b229-46e4-9dab-583d90ef8117';
+let partyId = '396afdb9-7d69-466d-8be1-9ced27a8f202';
+let officeId = 'c2f264a2-1645-4d37-a7c0-4707f671be8b';
 
 const editName = { name: 'alvin' };
 let user;
 const loginUser = {
   password: '12345',
-  email: 'rud@gmail.com'
+  email: 'tend@gmail.com'
 };
 
 const { expect } = chai;
@@ -30,8 +30,15 @@ const newParty = {
   logo: 'https://farm7.staticflickr.com/6057/6262125702_a086dd49f1.jpg'
 };
 
+const castVote = {
+  candidate: 'cc24b573-dc69-4722-9e7c-917c5c018d43',
+  office: 'c2f264a2-1645-4d37-a7c0-4707f671be8b',
+  createdby: '5228f8e8-b089-48e3-b49a-3e9cecae2719'
+};
+
 const newOffice = {
-  name: 'new office from test'
+  name: 'new office from test',
+  type: 'local government'
 };
 
 describe('POST /api/v1/login', () => {
@@ -45,6 +52,22 @@ describe('POST /api/v1/login', () => {
         user = res.body.token;
         //console.log(user);
 
+        done();
+      });
+  });
+});
+
+describe('POST /api/v1/votes', () => {
+  it('should cast a vote to the database', done => {
+    chai
+      .request(server)
+      .post('/api/v1/votes')
+      .send(castVote)
+      .end((err, res) => {
+        res.should.have.status(201);
+        expect(res.body)
+          .to.have.property('message')
+          .and.to.have('string');
         done();
       });
   });
@@ -126,9 +149,10 @@ describe('POST /offices', () => {
     chai
       .request(server)
       .post('/api/v1/offices')
-      .set('authorization', user)
+      .set('authorization', process.env.TEST_TOKEN)
       .send(newOffice)
       .end((err, res) => {
+        newOffice.id = res.body.data[0].id;
         expect(res).to.have.status(201);
         done();
       });
