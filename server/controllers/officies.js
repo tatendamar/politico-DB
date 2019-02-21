@@ -8,17 +8,11 @@ import db from '../models/index';
 dotenv.config();
 
 const postOffice = async (req, res) => {
-  const { name, user_id } = req.body;
+  const { name, type } = req.body;
 
-  const createQuery = `INSERT INTO officies(id,name, created_date,modified_date,user_id) VALUES($1,$2,$3,$4,$5)`;
+  const createQuery = `INSERT INTO officies(id,name,created_date,modified_date,type) VALUES($1,$2,$3,$4,$5)`;
 
-  const values = [
-    uuidv4(),
-    name,
-    moment(new Date()),
-    moment(new Date()),
-    user_id
-  ];
+  const values = [uuidv4(), name, moment(new Date()), moment(new Date()), type];
 
   try {
     const rows = await db.query(createQuery, values);
@@ -28,7 +22,7 @@ const postOffice = async (req, res) => {
       message: 'office posted successfully'
     });
   } catch (error) {
-    console.log(error);
+    console.log(error.rows[0].detail);
     return res.status(400).send(error);
   }
 };
@@ -66,7 +60,7 @@ const getOffice = async (req, res) => {
 
 const createCandidate = async (req, res) => {
   const { office_id, user_id, party_id } = req.body;
-  const createQuery = `INSERT INTO candidates(id,office_id,user_id,created_date,modified_date,party_id) VALUES($1,$2,$3,$4,$5,$6)`;
+  const createQuery = `INSERT INTO candidates(id,office_id,user_id,created_date,modified_date,party_id) VALUES($1,$2,$3,$4,$5,$6) returning *`;
 
   const values = [
     uuidv4(),

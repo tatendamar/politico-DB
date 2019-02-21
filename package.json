@@ -4,9 +4,9 @@
   "description": "a political site\r This project will address transparency issues during election periods,\r It will allow users to vote for their candidates and allow the electoral body can register/create political parties and allow users to vote for their political candidate who belongs to a political office",
   "main": "index.js",
   "scripts": {
-    "start": "node --exec babel-node ./dist/index.js",
-    "test": "mocha \"./server/tests/*.test.js\" --require @babel/register --require @babel/polyfill --exit",
-    "coverage": "istanbul cover node_modules/mocha/bin/_mocha ./server/tests/*.test.js",
+    "start": "nodemon --exec babel-node index.js",
+    "test": "nyc mocha \"./server/tests/*.test.js\" --require @babel/register --require @babel/polyfill --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "babel index.js server -d dist",
     "heroku-postbuild": "npm install --production",
     "create": "node \"./server/tests/database-sql.test.js\" createTables"
@@ -66,6 +66,7 @@
     "eslint-plugin-react": "^7.11.0",
     "istanbul": "^1.0.0-alpha.2",
     "mocha": "^5.2.0",
+    "nyc": "^13.3.0",
     "should": "^13.2.3",
     "sinon": "^7.2.3",
     "supertest": "^3.4.2"
