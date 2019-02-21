@@ -15,18 +15,19 @@ const login = async (req, res) => {
 
   const textQuery = 'SELECT * FROM users WHERE email = $1';
   try {
-    const { rows } = await db.query(textQuery, [req.body.email]);
-    if (!rows[0]) {
+    const rows = await db.query(textQuery, [req.body.email]);
+    //console.log(rows.rows[0]);
+    if (!rows.rows[0]) {
       return res
         .status(400)
         .send({ message: 'The email you provided could not be found' });
     }
-    if (!Helper.comparePassword(rows[0].password, req.body.password)) {
+    if (!Helper.comparePassword(rows.rows[0].password, req.body.password)) {
       return res.status(200).send({ message: 'password incorrect' });
     }
-    const token = Helper.genToken(rows[0].id);
-    console.log(rows);
-    return res.status(200).send({ token });
+    const token = Helper.genToken(rows.rows[0].id);
+    //console.log(token);
+    return res.status(201).send({ status: 201, token: token });
   } catch (error) {
     console.log(error);
     return res.status(400).send(error);

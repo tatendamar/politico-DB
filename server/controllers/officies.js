@@ -22,9 +22,11 @@ const postOffice = async (req, res) => {
 
   try {
     const rows = await db.query(createQuery, values);
-    return res
-      .status(201)
-      .send({ rows: rows[0], message: 'office posted successfully' });
+    return res.status(201).send({
+      status: 201,
+      rows: rows.rows[0],
+      message: 'office posted successfully'
+    });
   } catch (error) {
     console.log(error);
     return res.status(400).send(error);
@@ -37,8 +39,9 @@ const getOffices = async (req, res) => {
   try {
     const rows = await db.query(allQuery);
 
-    return res.status(200).send(rows);
+    return res.status(200).send({ status: 200, data: rows });
   } catch (error) {
+    console.log(error);
     return res.status(400).send(error);
   }
 };
@@ -61,29 +64,29 @@ const getOffice = async (req, res) => {
   }
 };
 
-// const createCandidate = async (req, res) => {
-//   const { office_id, user_id, party_id } = req.body;
-//   const createQuery = `INSERT INTO candidates(id,office_id,user_id,created_date,modified_date,party_id) VALUES($1,$2,$3,$4,$5,$6)`;
+const createCandidate = async (req, res) => {
+  const { office_id, user_id, party_id } = req.body;
+  const createQuery = `INSERT INTO candidates(id,office_id,user_id,created_date,modified_date,party_id) VALUES($1,$2,$3,$4,$5,$6)`;
 
-//   const values = [
-//     uuidv4(),
-//     office_id,
-//     user_id,
-//     moment(new Date()),
-//     moment(new Date()),
-//     party_id
-//   ];
+  const values = [
+    uuidv4(),
+    office_id,
+    user_id,
+    moment(new Date()),
+    moment(new Date()),
+    party_id
+  ];
 
-//   try {
-//     const rows = await db.query(createQuery, values);
-//     console.log(rows);
-//     return res
-//       .status(201)
-//       .send({ rows: rows[0], message: 'candidated created successfully' });
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(400).send(error);
-//   }
-// };
+  try {
+    const rows = await db.query(createQuery, values);
+    console.log(rows[0]);
+    return res
+      .status(201)
+      .send({ rows: rows[0], message: 'candidated created successfully' });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send(error);
+  }
+};
 
-export default { postOffice, getOffices, getOffice };
+export default { postOffice, getOffices, getOffice, createCandidate };

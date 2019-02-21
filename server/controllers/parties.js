@@ -1,7 +1,10 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
+import 'regenerator-runtime/runtime';
+import '@babel/polyfill';
 import uuidv4 from 'uuid/v4';
 import moment from 'moment';
+import db from '../models/index';
 
 dotenv.config();
 
@@ -45,44 +48,44 @@ const getParties = (req, res) => {
   });
 };
 
-const getParty = (req, res) => {
-  const id = req.params.partyId;
-  pool.query('SELECT * FROM parties WHERE id = $1', [id], (err, party) => {
-    let found = party.rows.find(party => {
-      return party.id !== parseInt(id);
-    });
-    if (found) {
-      res.send({
-        status: 200,
-        data: found
-      });
-    } else {
-      //FIXME: failiing to return error object
-      return res.send({
-        status: 404,
-        message: 'Invalid party ID'
-      });
-    }
-  });
-};
-
-// const getParty = async (req, res) => {
+// const getParty = (req, res) => {
 //   const id = req.params.partyId;
-//   const singleQuery = `SELECT * FROM parties WHERE id = $1`;
-
-//   try {
-//     const rows = await db.query(singleQuery, [id]);
-//     const newVar = rows.rows[0].id;
-//     console.log(newVar);
-//     if (!rows.rows[0]) {
-//       return res.status(404).send({ message: 'not found' });
+//   pool.query('SELECT * FROM parties WHERE id = $1', [id], (err, party) => {
+//     let found = party.rows.find(party => {
+//       return party.id !== parseInt(id);
+//     });
+//     if (found) {
+//       res.send({
+//         status: 200,
+//         data: found
+//       });
+//     } else {
+//       //FIXME: failiing to return error object
+//       return res.send({
+//         status: 404,
+//         message: 'Invalid party ID'
+//       });
 //     }
-//     return res.status(200).send({ status: 200, data: rows.rows[0] });
-//   } catch (error) {
-//     console.log(error);
-//     return res.status(400).send(error);
-//   }
+//   });
 // };
+
+const getParty = async (req, res) => {
+  const id = req.params.partyId;
+  const singleQuery = `SELECT * FROM parties WHERE id = $1`;
+
+  try {
+    const rows = await db.query(singleQuery, [id]);
+    // const newVar = rows.rows[0].id;
+    //console.log(newVar);
+    if (!rows.rows[0]) {
+      return res.status(404).send({ message: 'not found' });
+    }
+    return res.status(200).send({ status: 200, data: rows.rows[0] });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send(error);
+  }
+};
 
 const editParty = (req, res) => {
   const id = req.params.partyId;

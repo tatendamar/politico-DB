@@ -6,3 +6,5 @@ before_install:
 after_success:
   - codecov --file coverage/lcov.info --disable search
   -codecovgit 
+  -codecov
+  repo_token: h1Sdggigkfo9IuVs1aZPUI6P9zwc2vy1c

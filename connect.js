@@ -18,7 +18,6 @@ const createOfficesTable = () => {
    officies(
      id UUID PRIMARY KEY,
      name VARCHAR(128) NOT NULL,
-     type VARCHAR(128) NOT NULL,
 )`;
 
   pool

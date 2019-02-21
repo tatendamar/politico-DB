@@ -8,7 +8,7 @@ app
   // .route('/offices', Auth.verifyToken)
   .get('/offices', Auth.verifyToken, officies.getOffices)
   .post('/offices', Auth.verifyToken, officies.postOffice)
-  .get('/offices/:officeId', Auth.verifyToken, officies.getOffice);
-//.post('/:officeId/register', officies.createCandidate);
+  .get('/offices/:officeId', Auth.verifyToken, officies.getOffice)
+  .post('/:officeId/register', officies.createCandidate);
 
 export default app;

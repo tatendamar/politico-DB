@@ -6,6 +6,9 @@ import officeRoutes from './server/routes/officies';
 import users from './server/routes/signup';
 import user from './server/routes/login';
 import '@babel/polyfill';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = require('express')();
 app.use(morgan('dev'));
@@ -32,9 +35,9 @@ app.use((req, res, next) => {
 //init routes using the standard specified
 app.use('/api/v1', partyRoutes);
 app.use('/api/v1', officeRoutes);
-app.use('/office', officeRoutes);
-app.use('/auth', users);
-app.use('/auth', user);
+app.use('/api/v1/office', officeRoutes);
+app.use('/api/v1/auth', users);
+app.use('/api/v1/auth', user);
 
 app.use((req, res, next) => {
   const error = new Error(

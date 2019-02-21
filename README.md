@@ -1,8 +1,8 @@
-# politico
+# politico-DB
 
 [![Build Status](https://travis-ci.com/tatendamar/politico-DB.svg?branch=develop)](https://travis-ci.com/tatendamar/politico-DB)
 
-[![codecov](https://codecov.io/gh/tatendamar/politico/branch/develop/graph/badge.svg)](https://codecov.io/gh/tatendamar/politico)
+[![Coverage Status](https://coveralls.io/repos/github/tatendamar/politico-DB/badge.svg?branch=develop)](https://coveralls.io/github/tatendamar/politico-DB?branch=develop)
 
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/tatendamar/politico)
 
