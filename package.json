@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node index.js",
-    "test": "nyc mocha \"./server/tests/*.test.js\" --require @babel/register --require @babel/polyfill --exit",
+    "test": "npm run database && nyc mocha \"./server/tests/*.test.js\" --require @babel/register --require @babel/polyfill --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "babel index.js server -d dist",
     "heroku-postbuild": "npm install --production",
