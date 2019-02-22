@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/tatendamar/politico-DB.svg?branch=develop)](https://travis-ci.com/tatendamar/politico-DB)
 
-[![Coverage Status](https://coveralls.io/repos/github/tatendamar/politico-DB/badge.svg?branch=develop)](https://coveralls.io/github/tatendamar/politico-DB?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/tatendamar/politico-DB/badge.svg?branch=develop)](https://coveralls.io/github/tatendamar/politico-DB?branch=develop&kill_cache=1)
 
 [![codecov](https://codecov.io/gh/tatendamar/politico-DB/branch/develop/graph/badge.svg)](https://codecov.io/gh/tatendamar/politico-DB)
 
