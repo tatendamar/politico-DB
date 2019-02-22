@@ -31,7 +31,9 @@ const postParty = (req, res) => {
       if (err) {
         throw err;
       }
-      res.status(201).send(results);
+      res
+        .status(201)
+        .send({ status: 201, message: 'party was created successfully' });
     }
   );
 };

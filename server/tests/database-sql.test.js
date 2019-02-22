@@ -14,6 +14,17 @@ let officeId = 'c2f264a2-1645-4d37-a7c0-4707f671be8b';
 
 const editName = { name: 'alvin' };
 let user;
+
+const signupUser = {
+  firstname: 'tatenda',
+  lastname: 'marufu',
+  othername: 'no',
+  email: 'ttstsjn@fmmg.com',
+  password: '12345',
+  phonenumber: '0030303003003',
+  passporturl: 'httpdllldlkdk'
+};
+
 const loginUser = {
   password: '12345',
   email: 'tend@gmail.com'
@@ -41,6 +52,21 @@ const newOffice = {
   type: 'local government'
 };
 
+describe('POST /api/v1/signup', () => {
+  it('should signup a user', done => {
+    chai
+      .request(server)
+      .post('/api/v1/auth/signup')
+      .send(signupUser)
+      .end((err, res) => {
+        res.should.have.status(201);
+        expect(res.body)
+          .to.have.property('message')
+          .and.to.have('string');
+        done();
+      });
+  });
+});
 describe('POST /api/v1/login', () => {
   it('should login a user', done => {
     chai
@@ -64,7 +90,23 @@ describe('POST /api/v1/votes', () => {
       .post('/api/v1/votes')
       .send(castVote)
       .end((err, res) => {
-        +res.should.have.status(201);
+        res.should.have.status(201);
+        expect(res.body)
+          .to.have.property('message')
+          .and.to.have('string');
+        done();
+      });
+  });
+});
+
+describe('POST /api/v1/petition', () => {
+  it('should cast a vote to the database', done => {
+    chai
+      .request(server)
+      .post('/api/v1/petition')
+      .send(castVote)
+      .end((err, res) => {
+        res.should.have.status(201);
         expect(res.body)
           .to.have.property('message')
           .and.to.have('string');
@@ -79,6 +121,7 @@ describe('POST /api/v1/parties', () => {
       .request(server)
       .post('/api/v1/parties')
       .send(newParty)
+      .set('authorization', process.env.TEST_TOKEN)
       .end((err, res) => {
         res.should.have.status(201);
         expect(res.body)
@@ -152,7 +195,7 @@ describe('POST /offices', () => {
       .set('authorization', process.env.TEST_TOKEN)
       .send(newOffice)
       .end((err, res) => {
-        newOffice.id = res.body.data[0].id;
+        newOffice.id = res.body.rows.rows[0].id;
         expect(res).to.have.status(201);
         done();
       });
@@ -163,13 +206,27 @@ describe('GET /offices', () => {
   it('It should return all offices', done => {
     chai
       .request(server)
-      .get(`/api/v1/offices/${officeId}`)
-      .set('authorization', user)
+      .get(`/api/v1/offices`)
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body)
           .to.have.property('data')
           .and.to.be.an('array');
+        done();
+      });
+  });
+});
+
+describe('GET /office', () => {
+  it('It should return a single office', done => {
+    chai
+      .request(server)
+      .get(`/api/v1/offices/${officeId}`)
+      .end((err, res) => {
+        expect(res).to.have.status(200);
+        expect(res.body)
+          .to.have.property('data')
+          .and.to.be.an('object');
         done();
       });
   });

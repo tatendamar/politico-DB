@@ -1,10 +1,18 @@
 language: node_js
 node_js:
   - 'stable'
+install:
+-npm install
+-npm install -g codecov
 services:
   - postgresql
 before_script:
   - psql -c 'create database politico;' -U postgres
   - psql -c "CREATE USER root WITH PASSWORD 'password';" -U postgres
+script: 
+  -npm test
+  -nyc report --report=text-lcov > coverage.lcov &&  codecov
+after_script:
+  -npm run coverage
 after_success: npm run coverage
 repo_token: h1Sdggigkfo9IuVs1aZPUI6P9zwc2vy1c

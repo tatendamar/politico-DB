@@ -1,14 +1,13 @@
 import parties from '../controllers/parties';
-const app = require('express')();
+import Auth from '../middleware/auth';
+import express from 'express';
+const app = express();
 
 app
-  .route('/parties')
-  .get(parties.getParties)
-  .post(parties.postParty);
-app
-  .route('/parties/:partyId')
-  .get(parties.getParty)
-  .put(parties.editParty)
-  .delete(parties.deleteParty);
+  .get('/parties', parties.getParties)
+  .post('/parties', Auth.verifyToken, parties.postParty)
+  .get('/parties/:partyId', parties.getParty)
+  .put('/parties/:partyId', parties.editParty)
+  .delete('/parties/:partyId', parties.deleteParty);
 
 export default app;

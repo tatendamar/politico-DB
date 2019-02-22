@@ -40,7 +40,9 @@ const createUser = async (req, res) => {
     console.log(rows);
     const token = Helper.genToken(rows[0].id);
     console.log(token);
-    return res.status(201).send({ token });
+    return res
+      .status(201)
+      .send({ status: 201, message: 'user signup successfull' });
   } catch (error) {
     if (error.routine === '_bt_check_unique') {
       return res.status(400).send({ message: 'User ' });

@@ -8,9 +8,9 @@ const app = express();
 
 app
   // .route('/offices', Auth.verifyToken)
-  .get('/offices', Auth.verifyToken, officies.getOffices)
+  .get('/offices', officies.getOffices)
   .post('/offices', Auth.verifyToken, officies.postOffice)
-  .get('/offices/:officeId', Auth.verifyToken, officies.getOffice)
+  .get('/offices/:officeId', officies.getOffice)
   .post('/:officeId/register', Auth.verifyToken, officies.createCandidate)
   .post('/votes', Auth.verifyToken, vote.vote)
   .post('/petition', Auth.verifyToken, petition.petition);

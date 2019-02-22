@@ -33,7 +33,7 @@ const getOffices = async (req, res) => {
   try {
     const rows = await db.query(allQuery);
 
-    return res.status(200).send({ status: 200, data: rows });
+    return res.status(200).send({ status: 200, data: rows.rows });
   } catch (error) {
     console.log(error);
     return res.status(400).send(error);
@@ -51,7 +51,7 @@ const getOffice = async (req, res) => {
     if (!rows.rows[0]) {
       return res.status(404).send({ message: 'not found' });
     }
-    return res.status(200).send(rows.rows[0]);
+    return res.status(200).send({ status: 200, data: rows.rows[0] });
   } catch (error) {
     console.log(error);
     return res.status(400).send(error);
